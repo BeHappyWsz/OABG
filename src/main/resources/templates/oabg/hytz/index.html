@@ -1,0 +1,30 @@
+<script src="${s.ctx}/apps/oabg/hytz/index.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true">
+	<div data-options="region:'north',border:false" title="查询条件" style="height:<@c.commonRowHeight row=1/>">
+		<div style="width:970px">
+			<form id="hytz_qf">
+			<input type="hidden" id="hytz_name" name="name" value="${name}"/>
+				<table class="querytable">
+					<tr>
+						
+					    <td class="label">会议时间(起)：</td>
+						<td><input name="timestart" class="easyui-datebox" data-options="editable:false,showSeconds: false"></td>
+						<td class="label">会议时间(止)：</td>
+						<td><input name="timeend" class="easyui-datebox" data-options="editable:false,showSeconds: false"></td>
+						<td><a id="hytz_query" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">查询</a></td>
+						<td><a id="hytz_clear" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-cross'">重置</a></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	<div data-options="region:'center',border:false" title="数据列表【双击查看详情】">
+		<table id="hytz_grid" toolbar="#hytz_gridbar"></table>
+		<div id="hytz_gridbar">
+			<div style="padding: 2px">
+				<@command menu="OABG_HuiYTZ" name="hytz-add,hytz-update"/>
+			</div>
+		</div>
+	</div>
+</div> 

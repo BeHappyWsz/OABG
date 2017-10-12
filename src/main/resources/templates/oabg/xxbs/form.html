@@ -1,0 +1,33 @@
+ <script src="${s.ctx}/apps/oabg/xxbs/form.js" type="text/javascript"></script>
+<@s.loading/> 
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false,collapsible:false" style="padding:3px" >
+		<form id="xxbs_form" >
+			<input id="xxbs_form_id" name="id" type="hidden"/>
+			<input id="xxbs_form_date" value="${date}" type="hidden"/>
+			<table width="100%" class="formtable">
+				<tr>
+					<td class="label">报送部门：<@c.redstar/></td>
+					<td ><@c.getBmdwTree name="bsbm" code="BMDWL" id="bmdw" required="true" width="200px"/></td>
+					<td class="label">报送时间：<@c.redstar/></td>
+					<td ><input class="easyui-datetimebox" name="bssj" id="bssj" data-options="required:true,editable:false,disabled:true" style="width: 145px;"/></td>
+				</tr>
+				<tr style="height:50px">
+					<td class="label">标题：<@c.redstar/></td>
+					<td colspan="3"><input class="easyui-textbox" name="bsbt"  data-options="required:true,validType:['maxLength[50]']" style="width: 75%"/></td>
+					
+				</tr>
+				<tr >
+					<td class="label">正文：<@c.redstar/></td>
+					<td colspan="3">
+						  <textarea id="test-easyui-kindeditorbox" class="easyui-kindeditorbox" required="true" name="bsnr" style="width:200px;height:300px;">
+                        </textarea>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="XXBSSQ" name="XXBSSQ_SAVEBTN"/>
+	</div>
+</div>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>chooseMapWin.html</title>
+  </head>
+  <body>
+  	<@s.loading/>
+  	<div class="easyui-layout" data-options="fit:true">
+  		  <div data-options="region:'north',border:false" style="height:70px;">
+  		  	<input type="hidden" id="chooseMapWin_ssdqId">
+  		  	<table>
+  		  		<tr>
+  		  			<td>所属地区：</td>
+  		  			<td>
+  		  				<input id="area" value="${area!}" class="easyui-textbox"/>
+  		  			</td>
+  		  			<td colspan="3">
+  		  				<a data-id="searchMapBtn" class="easyui-linkbutton" data-options="plain:false,iconCls:'l-btn-icon icon-standard-zoom'" >查询</a>
+  		  			</td>
+  		  		</tr>
+  		  		<tr>
+  		  			<td>经度：</td>
+  		  			<td>
+  		  				<input id="jdx" value="${jd!}" class="easyui-textbox" data-options="readonly:true"/>
+  		  			</td>
+  		  			<td>纬度：</td>
+  		  			<td>
+  		  				<input id="wdy" value="${wd!}" class="easyui-textbox" data-options="readonly:true"/>
+  		  			</td>
+  		  			<td>
+  		  				<a data-id="confirmChooseBtn" class="easyui-linkbutton" data-options="plain:false,iconCls:'l-btn-icon icon-standard-accept'" >确认选择</a>
+  		  			</td>
+  		  		</tr>
+  		  	</table>
+		  </div>
+	  	  <div id="mapView" data-options="region:'center',border:false">
+	   	  </div>
+	   	  <script type="text/javascript">
+	   	  		var jd_ = '${jd!}';
+	   	  		var wd_ = '${wd!}';
+	   	  		var area_ = encodeURI('${area!}');
+	   			$("#mapView").load(ctx+"/mapView/showMapWin.do?jd="+jd_+"&wd="+wd_+"&area="+area_);
+	   	  </script>
+	  </div>
+  </body>
+</html>

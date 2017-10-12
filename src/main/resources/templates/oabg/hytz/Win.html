@@ -1,0 +1,43 @@
+<script src="${s.ctx}/apps/oabg/hytz/win.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false,collapsible:false" style="padding:3px" >
+			<input type="hidden" value="${h.id!}" id="hytzfkid">
+			<input type="hidden" value="${cc!}" id="hytzfkc">
+			<table width="100%" class="formtable">
+				<tr>
+					<td class="label">收件人</td>
+					<td colspan="3" id="nametd">${h.name!}</td>
+				</tr>
+				<tr>
+				   	<td class="label">会议时间</td>
+					<td colspan="3"> ${h.huiyitime}  </td>
+				</tr>
+				<tr>
+					<td class="label">会议地址</td>
+					<td colspan="3">${h.huiyiaddress!}</td>
+				</tr>
+				<tr>
+				   	<td class="label">会议标题</td>
+					<td colspan="3">${h.titles!}</td>
+				</tr>	
+				<tr>
+				   	<td class="label">会议内容</td>
+					<td colspan="3" height="376px;" valign="top">
+					<div>${h.huiyitext}</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="label">附件</td>
+					<td colspan="3" id="fj"> 
+					<#list urlList! as url>
+						<div><a class="a" href="${s.ctx}${url.url}">${url.fileName}</a></div><br>
+					</#list> 
+            		</td>
+				</tr>
+			</table>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;" id="hytzDiv">
+		<@command menu="OABG_HuiYTZ" name="hytz-fkk"/>
+	</div>
+</div>

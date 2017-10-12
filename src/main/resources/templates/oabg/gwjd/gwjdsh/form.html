@@ -1,0 +1,115 @@
+<script src="${s.ctx}/apps/oabg/gwjd/gwjdsh/form.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false,collapsible:false" style="padding:3px" >
+		<form id="gwjdsh_form" >
+			<fieldset style="padding: 3px;">
+				<legend>申请人信息</legend>
+				<input id="gwjdsh_form_id" name="id" type="hidden" value="${gwjdshInfo.id!}"/>
+				<table width="100%" class="formtable">
+					<tr>
+						<td class="label">申请人</td>
+						<td >${gwjdshInfo.sqr!}</td>
+						<td class="label">申请日期</td>
+						<td>${gwjdshInfo.sqrq!}</td>
+					</tr>
+				</table>
+			</fieldset>
+			<fieldset style="padding: 3px;">
+				<legend>接待信息</legend>
+				<table width="100%" class="formtable">
+					<tr>
+						<td class="label">接待对象</td>
+						<td>${gwjdshInfo.jddx!}</td>
+						<td class="label">接待时间</td>
+						<td>${gwjdshInfo.jdsj!}</td>
+					</tr>
+					<tr>
+						<td class="label">接待人数</td>
+						<td>${gwjdshInfo.jdrs!}</td>
+						<td class="label">陪客人数</td>
+						<td>${gwjdshInfo.pkrs!}</td>
+					</tr>
+					<tr>
+						<td class="label">接待级别</td>
+						<td colspan="3">${gwjdshInfo.jdjb!}</td>
+					</tr>
+					<tr>
+						<td class="label">接待事由</td>
+						<td colspan="3">${gwjdshInfo.jdsy!}</td>
+					</tr>
+				</table>
+			</fieldset>
+			<fieldset style="padding: 3px;">
+				<legend>会场信息</legend>
+				<table width="100%" class="formtable">
+					<tr>
+						<td class="label">会场地点</td>
+						<td>${gwjdshInfo.hcdd!}</td>
+						<td class="label">标准</td>
+						<td>${gwjdshInfo.hcbz!}</td>
+					</tr>
+					<tr>
+						<td class="label">与会人数</td>
+						<td colspan="3">${gwjdshInfo.hcrs!}</td>
+					</tr>
+				</table>
+			</fieldset>
+			<fieldset style="padding: 3px;">
+				<legend>住宿信息</legend>
+				<table width="100%" class="formtable">
+					<tr>
+						<td class="label">住宿地点</td>
+						<td>${gwjdshInfo.zsdd!}</td>
+						<td class="label">住宿标准</td>
+						<td>${gwjdshInfo.zsbz!}</td>
+					</tr>
+					<tr>
+						<td class="label">住宿人数</td>
+						<td colspan="3">${gwjdshInfo.zsrs!}</td>
+					</tr>
+				</table>
+			</fieldset>
+			<fieldset style="padding: 3px;">
+				<legend>餐饮信息</legend>
+				<table width="100%" class="formtable">
+					<tr>
+						<td class="label">餐饮地点</td>
+						<td>${gwjdshInfo.cydd!}</td>
+						<td class="label">餐饮标准</td>
+						<td>${gwjdshInfo.cybz!}</td>
+					</tr>
+					<tr>
+						<td class="label">餐饮人数</td>
+						<td colspan="3">${gwjdshInfo.cyrs!}</td>
+					</tr>
+				</table>
+			</fieldset>
+			<fieldset style="padding: 3px;">
+				<legend>其他信息</legend>
+				<table width="100%" class="formtable">
+					<tr>
+						<td class="label">预算大写</td>
+						<td>${gwjdshInfo.ysdx!}</td>
+						<td class="label">预算小写</td>
+						<td>${gwjdshInfo.ysxx!}</td>
+					</tr>
+					<tr>
+						<td class="label">其他金额</td>
+						<td colspan="3">${gwjdshInfo.qtje!}</td>
+					</tr>
+					<tr style="height: 60px;">
+						<td class="label">备注</td>
+						<td colspan="3">${gwjdshInfo.bz!}</td>
+					</tr>
+				</table>
+			</fieldset>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+	<#if gwjdformshowczbtn>
+		<@command menu="OABG_GWJD_GWJDSH" name="GWJDSH_FORMCZSHBTN"/>
+	</#if>
+	<@command menu="OABG_GWJD_GWJDSH" name="GWJDSH_FORMBGSSHBTN,GWJDSH_FORMCWSHBTN"/>
+	</div>
+</div>

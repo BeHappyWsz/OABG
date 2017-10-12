@@ -1,0 +1,42 @@
+<script src="${s.ctx}/apps/oabg/zcgl/zcdj/form.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false,collapsible:false" style="padding:3px" >
+		<form id="zcdj_form" >
+			<input name="id" type="hidden"/>
+			<table width="100%" class="formtable">
+				<tr>
+					<td class="label">资产名称<@c.redstar/></td>
+					<td ><input name="zcmc" class="easyui-textbox" data-options="required:true,validType:['maxLength[25]']" /></td>
+					<td class="label">品牌<@c.redstar/></td>
+					<td ><input name="pp" class="easyui-textbox" data-options="required:true,validType:['maxLength[25]']" /></td>
+				</tr>
+				<tr>
+					<td class="label">型号<@c.redstar/></td>
+					<td ><input name="xh" class="easyui-textbox" data-options="required:true,validType:['maxLength[25]']" /></td>
+					<td class="label">预计使用寿命<@c.redstar/></td>
+					<td><input name="yjsysm" class="easyui-numberbox" data-options="required:true,min:0,max:10000000,value:0" /></td>
+				</tr>
+				<tr>
+					<td class="label">单位<@c.redstar/></td>
+					<td><input name="dw" class="easyui-textbox" data-options="required:true,validType:['maxLength[25]']" /></td>
+					<td class="label">数量<@c.redstar/></td>
+					<td><input name="sl" class="easyui-numberbox" data-options="required:true,min:0,max:10000000,value:0" /></td>
+				</tr>
+				<tr>
+					<td class="label">使用部门<@c.redstar/></td>
+					<td><@c.getBmdwTree name="bm" code="BMDWZ" required="true"/></td>
+					<td class="label">使用人<@c.redstar/></td>
+					<td><input name="syr" class="easyui-textbox" data-options="required:true,validType:['maxLength[25]']" /></td>
+				</tr>
+				<tr>
+					<td class="label">备注<@c.redstar/></td>
+					<td colspan="3"><input name="bz" class="easyui-textbox" data-options="required:true,multiline:true,validType:['maxLength[250]']" style="width: 490px;height: 60px;" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="OABG_HQGL_ZCGL_ZCDJ" name="ZCDJ_SAVE"/>
+	</div>
+</div>

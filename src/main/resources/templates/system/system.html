@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh">
+[@s.mainhead title="系统首页"]
+<!-- 自定义的js -->
+	[@simpleweb]
+		[#assign mainIncludeHeaderUrl = $simpleweb.mainIncludeHeaderUrl /]
+	[/@simpleweb]
+	[#include mainIncludeHeaderUrl]
+[/@s.mainhead]
+  <body>
+  	[@s.loading/]
+	<link rel="stylesheet" href="${s.ctx}/apps/simpleweb/css/index.css">
+	<link rel="stylesheet" href="${s.ctx}/system/index/index.css">
+	<script type="text/javascript" src="${s.ctx}/system/index/main.js"></script>
+	<style type="text/css">
+		.circle{
+				width:40px;
+				height: 40px;
+				background-color:red;
+				border-radius: 50%;
+				-moz-border-radius: 50%;
+				-webkit-border-radius: 50%;
+				text-align: center;
+				line-height: 40px;
+				font-size:20px;
+				color:white;
+				position:absolute;
+				right:-10px;
+				bottom:115px;
+				} 
+	</style>
+	<div id="indexmenus" class="indexmenus">
+		<div class="indexmenus-title">
+			<img class="indexmenus-titleimg" alt="" src="${s.ctx}/system/index/indeximg/logo.png">
+		</div>
+		<div class="indexmenus-center">
+			<div class="indexmenus-main">
+				[#if indexMainRoleMenus??]
+					[#list indexMainRoleMenus as item ]
+					<div class="indexmenusbtns" data-mycodes="${item.mycodes!}" data-hasres="${item.hasres!}">
+						<img class="indexmenusbtns-img" alt="" src="${s.ctx}/system/index/indeximg/${item.key!}.png">
+							[#if item.key=='dzwj']
+								<div  id="index_dzwjNum"></div>
+							[/#if]
+							[#if item.key=='hytz']
+								<div  id="index_hytzNum"></div>
+							[/#if]
+							[#if item.key=='gzgl']
+								<div  id="index_gzglNum"></div>
+							[/#if]
+							[#if item.key=='bgyp']
+								<div  id="index_bgypNum"></div>
+							[/#if]
+							[#if item.key=='hwpx']
+								<div  id="index_hwpxNum"></div>
+							[/#if]
+							[#if item.key=='kqgl']
+								<div  id="index_kqglNum"></div>
+							[/#if]
+							[#if item.key=='xxbs']
+								<div  id="index_xxbsNum"></div>
+							[/#if]
+							[#if item.key=='xfrdta']
+								<div  id="index_xfrdNum"></div>
+							[/#if]
+							[#if item.key=='gdpsbl']
+								<div  id="index_gdpsNum"></div>
+							[/#if]
+							[#if item.key=='gzap']
+								<div  id="index_gzapNum"></div>
+							[/#if]
+							[#if item.key=='zcgl']
+								<div  id="index_zcglNum"></div>
+							[/#if]
+						<div class="indexmenusbtns-text">${item.name!}</div>
+					</div>
+					[/#list]
+				[/#if] 
+				<div class="indexmenusbtns-tc indexmenusbtns-cancel">
+					<img class="indexmenusbtns-img" alt="" src="${s.ctx}/system/index/indeximg/tcxt.png">
+					<div class="indexmenusbtns-text">退出系统</div>
+				</div>
+			</div>
+		</div>
+		<img class="indexmenus-bgimg" alt="" src="${s.ctx}/system/index/indeximg/bg.jpg">
+	</div>
+	<div id="indexLayout" class="easyui-layout" data-options="fit:true">
+		<div data-options="region:'north',collapsible:false,hideCollapsedContent:false,collapsedContent:'[@simpleweb key="title"/] [@simpleweb key="version"/]'" data-id="head" style="height:45px;overflow:hidden">
+			<!-- 第一行 -->
+			<div class="nav1">
+				<div class="col left">
+					<a href="http://www.simplesoft.cn"  target="_blank">
+		  				<img src="${s.ctx}/apps/simpleweb/images/logo.png" />
+		  			</a>
+	  			</div>
+				<div class="col mid">
+						
+				</div>
+				<div class="col right">
+						[@user]
+						[@const key="welcomestr"]
+							[#if $const??]
+							[#assign welcomestr=$const.value]
+							[/#if]
+						[/@const]
+						<a href="#"  data-action="useronline" class="easyui-linkbutton"  style="color: #36BDEF;" data-options="iconCls:'icon-standard-vcard',plain:true">
+						【${$user.realname}】${welcomestr!"欢迎您！"}
+						</a> 
+						[/@user]
+						<a data-action="refresh" href="javascript:void(0)" class="easyui-linkbutton" style="color: #36BDEF;"  data-options="plain:true,iconCls:'icon-standard-arrow-refresh'">刷新</a>
+						<a href="javascript:void(0)"  data-action="usersetting" class="easyui-linkbutton"  style="color: #36BDEF;" data-options="iconCls:'icon-standard-user-edit',plain:true">用户设置</a>  
+						<a href="javascript:void(0)" data-action="fullscreen"  class="easyui-linkbutton" style="color: #36BDEF;" data-options="iconCls:'icon-standard-arrow-out',plain:true">全屏切换</a>
+						<a href="javascript:void(0)" class="easyui-linkbutton indexmenusbtns-tc" style="color: #36BDEF;" data-options="iconCls:'icon-standard-door-out',plain:true">退出登录</a>    
+						<a href="javascript:void(0)" data-action="getmainmenus"  class="easyui-linkbutton" style="color: #36BDEF;" data-options="iconCls:'icon-standard-cancel',plain:true">关闭</a>  
+				</div>
+			</div>
+		</div>
+		<!-- 底部 -->
+		<div data-options="region:'south'" style="height:29px;overflow:hidden;">
+			<div class="footer">
+		  		<div class="col left">
+		  			当前在线人数:${$user.onlineUser!}
+		  		</div>
+		  		<div class="col mid"></div>
+		  		<div class="col right">
+		  			<a href="http://www.simplesoft.cn"  target="_blank">
+		  				<img src="${s.ctx}/apps/simpleweb/images/logo.png" class="bottomlogo"/>
+		  			</a>
+		  		</div>
+			</div>	
+		</div>
+		<!-- 左菜单 -->
+		<div class="indexLeft" data-id="leftmenu" style="width:190px;overflow:auto;" data-options="region:'west',split:false,collapsible:false,style:{textAlign:'left'}">
+			<ul id="indexleftmenutree"></ul>
+		</div>
+		<!-- 主要内容 -->
+		<div data-options="region:'center',split:true"><!--  -->
+			<div data-id="mainTabs" class="easyui-tabs" data-options="tools:'div[data-id=simpleweb-system-tab-tools]',toolPosition:'right',fit:true,border:false">
+				<div data-options="title: '主页',href:'${s.ctx}[@simpleweb key="initurl"/]',iconCls: 'icon-standard-application-home',border:false,title:'主页',fit:true,selected:true">
+				</div>
+			</div>
+		</div>
+	</div>
+<div id="simpleweb_system_profile_window" title="我的信息" style="padding:5px;width:800px;height:320px"
+        data-options="">
+    <form method="post">
+    	[@user]
+		<input type="text" style="display: none" value="${$user.id!}"  name="id" />
+		<table class="formtable" width="100%">
+			<caption>用户信息</caption>
+			<tbody>
+				<tr>
+					<td class="label">用户名</td>
+					<td>${$user.username!}</td>
+					<td class="label">真实姓名</td>
+					<td><input class="easyui-textbox" value="${$user.realname!}" style="width:200px;" name="realname"   data-options="required:false"/></td>
+				</tr>
+				<tr>
+					<td class="label">所属组织</td>
+					<td>${$user.org.orgName!}</td>
+					<td class="label">角色</td>
+					<td>
+						[#list $user.roles as role]
+							${role.roleName!}
+						[/#list]
+					</td>
+				</tr>
+				<tr>
+					<td class="label">描述</td>
+					<td colspan="3">
+						<textarea class="textbox" style="width:550px" name="des">${$user.des!}</textarea>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<table class="formtable" width="100%">
+			<caption>密码修改</caption>
+			<tbody>
+				<tr>
+					<td class="label">原密码</td>
+					<td>
+						<input class="easyui-textbox" type="password" style="width:200px" name="oldpassword"  data-options="required:false"/>		
+					</td>
+					<td class="label"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td  class="label">新密码</td>
+					<td>
+						<input class="easyui-textbox" type="password" style="width:200px" name="newpassword"  data-options="required:false"/>		
+					</td>
+					<td class="label">确认新密码</td>
+					<td>
+						<input class="easyui-textbox" type="password" style="width:200px" name="newpassword1"  data-options="required:false"/>		
+					</td>
+				</tr>
+			</tbody>
+		</table>		
+    	[/@user]
+    </form>
+</div>
+
+<!-- 模板开始 -->
+<div data-id="simpleweb-system-top-minitool">
+	<div class="nav1">
+		<div class="col left">
+			<a href="http://www.simplesoft.cn"  target="_blank">
+  				<img src="${s.ctx}/apps/simpleweb/images/logo.png" />
+  			</a>
+ 		</div>
+		<div class="col mid">
+			[@simpleweb key="title"/]	
+		</div>
+		<div class="col right">
+				[@user]
+				<a href="#"  data-action="useronline" class="easyui-linkbutton"  style="color: #36BDEF;" data-options="iconCls:'icon-standard-vcard',plain:true">
+				【${$user.realname}】欢迎您！
+				</a> 
+				[/@user]
+				<a data-action="refresh" href="javascript:void(0)" class="easyui-linkbutton" style="color: #36BDEF;"  data-options="plain:true,iconCls:'icon-standard-arrow-refresh'">刷新</a>
+				<a href="javascript:void(0)"  data-action="usersetting" class="easyui-linkbutton"  style="color: #36BDEF;" data-options="iconCls:'icon-standard-user-edit',plain:true">用户设置</a>  
+				<a href="javascript:void(0)" data-action="fullscreen"  class="easyui-linkbutton" style="color: #36BDEF;" data-options="iconCls:'icon-standard-arrow-out',plain:true">全屏切换</a>  
+				<a href="javascript:void(0)" data-action="loginout"  class="easyui-linkbutton" style="color: #36BDEF;" data-options="iconCls:'icon-standard-door-out',plain:true">退出登录</a>  
+		</div>
+	</div>
+</div>
+
+
+<div data-id="simpleweb-system-tab-tools">
+	<!-- <a data-action="refresh" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-standard-arrow-refresh'">刷新</a>
+	<a data-action="closeTabPanel" href="javascript:void(0)" data-options="plain:true,iconCls:'icon-standard-cancel',menu:'div[data-id=simpleweb-system-tab-tools-mm]'">关闭</a> -->
+</div>
+
+<div data-id="simpleweb-system-tab-tools-mm" style="width:100px;">
+	<div name="refreshPanel" iconCls="icon-standard-arrow-refresh">刷新</div>
+	<div class="menu-sep"></div>
+	<div name="closeCurrent" iconCls="icon-standard-application-form-delete">关闭当前标签</div>
+	<div name="closeNotCurrent" iconCls="icon-standard-cancel">关闭非当前标签</div>
+	<div class="menu-sep"></div>
+	<div name="closeLeft" iconCls="icon-standard-tab-close-left">关闭左侧标签</div>
+	<div name="closeRight" iconCls="icon-standard-tab-close-right">关闭右侧标签</div>
+	<div class="menu-sep"></div>
+	<div name="closeAll" iconCls="icon-standard-cross">全部关闭</div>
+</div>
+
+
+<div data-id="simpleweb_system_profile_window_dialogbutton">
+	<a data-action="save"  href="javascript:void(-1);" class="easyui-linkbutton" iconCls='icon-standard-page-save'>保存</a>  
+	<a data-action="close" href="javascript:void(-1);" class="easyui-linkbutton" iconCls='icon-standard-cancel'>关闭</a> 
+</div>
+
+[@menu /]
+
+	[@s.systemScript]
+	<!-- 开发环境下 -->
+	<script type="text/javascript">
+		seajs.use("${s.ctx}/apps/sources/system/main",function(callback){
+			new callback().render(); 
+		});
+	</script>
+	[/@s.systemScript] 
+	
+	[@s.systemReleaseScript]
+	<!-- 运行环境下 -->
+	<script type="text/javascript">
+		seajs.use("simpleweb-system/0.0.1/main",function(callback){
+			new callback().render();
+		});
+	</script>
+	[/@s.systemReleaseScript]
+	
+	
+  </body>
+</html>

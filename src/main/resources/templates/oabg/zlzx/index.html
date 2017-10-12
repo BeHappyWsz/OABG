@@ -1,0 +1,39 @@
+<script src="${s.ctx}/apps/oabg/zlzx/index.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true">
+	<div data-options="region:'north',border:false" title="查询条件" style="height: <@c.commonRowHeight row=2/>;">
+		<div style="width: 970px;">
+			<form id="zlzx_qf">
+				<table class="querytable">
+					<tr>
+						<td class="label">标题：</td>
+						<td><input name="title" class="easyui-textbox" /></td>
+						<td class="label">上传时间(起)：</td>
+						<td><input name="scsj_s" type="text" class="easyui-datebox" data-options="editable:false"></input></td>
+						<td class="label">上传时间(止)：</td>
+						<td><input name="scsj_e" type="text" class="easyui-datebox" data-options="editable:false"></input></td>
+						<td>
+							<a id="zlzx_query" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">查询</a>
+						</td>
+					</tr>
+					<tr>
+						<td class="label">文件类型：</td>
+						<td><@c.combo code="ZLLX" name="zllx"/></td>
+						<td class="label">上传用户：</td>
+						<td colspan="3"><input name="scyh" class="easyui-textbox" /></td>
+						<td>
+							<a id="zlzx_clear" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-cross'">清空</a>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	<div data-options="region:'center',border:false" title="数据列表[双击查看详情]">
+		<input id="zlzx_hide_curusername" type="hidden" value="${zlzxCurUserName!}">
+		<table id="zlzx_grid" toolbar="#zlzx_gridbar"></table>
+		<div id="zlzx_gridbar">
+			<div style="padding: 2px"><@command menu="OABG_RCGL_ZLZX" name="ZLZX_ADDBTN,ZLZX_UPDATEBTN,ZLZX_DELETEBTN"/></div>
+		</div>
+	</div>
+</div>

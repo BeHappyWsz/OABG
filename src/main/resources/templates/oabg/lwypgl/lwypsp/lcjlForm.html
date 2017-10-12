@@ -1,0 +1,23 @@
+<@s.loading/> 
+<table class="formtable" style="width: 100%;">
+	<tr>
+		<td class="label" style="text-align: center;width: 15%;">流程</td>
+		<td class="label" style="text-align: center;width: 23%;">处理时间</td>
+		<td class="label" style="text-align: center;width: 15%;">处理人</td>
+		<td class="label" style="text-align: center;width: 20%;">处理结果</td>
+		<td class="label" style="text-align: center;width: 27%;">处理意见</td>
+	</tr>
+	<#if lwypSqFlowList ??>
+	<#list lwypSqFlowList as item>
+	<tr>
+		<td style="text-align:center;">${item.cnode!}</td>
+		<td style="text-align:center;">${item.czsj!}</td>
+		<td style="text-align:left;">${item.pUserName!}</td>
+		<td style="text-align:center;">
+			<#if item.cnode!='提交'>${item.tgztName!}</#if>
+		</td>
+		<td style="text-align:left;">${item.suggestion!}</td>
+	</tr>
+	</#list>
+	</#if>
+</table> 

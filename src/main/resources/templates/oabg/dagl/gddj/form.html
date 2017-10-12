@@ -1,0 +1,44 @@
+<script src="${s.ctx}/apps/oabg/dagl/gddj/form.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false" style="padding:3px" >
+		<form id="gddj_form">
+			<input id="gddj_form_id" name="id" type="hidden"/>
+			<input id="gddj_form_cdrid" name="cdrid" value="${cdrid!}" type="hidden"/>
+			<table width="100%" class="formtable">
+				<tr>
+					<td class="label">归档类型</td>
+					<td><@c.combo name="gdlx" code="gdlx" required="true"/></td>
+					<td class="label">归档时间</td>
+					<td ><input id="gddj_form_gdrq" name="gdrq" class="easyui-datetimebox" disabled="disabled" style="background-color: #f0f0f0;width: 155px"/></td>
+				</tr>
+				<tr>
+					<td class="label">文件名称</td>
+					<td colspan="3"><input name="bt" class="easyui-textbox" data-options="required:true,validType:['maxLength[50]']" style="width:500px"/></td>
+				</tr>
+				<tr>
+					<td class="label">存档人</td>
+					<td ><input name="cdr" class="easyui-textbox" data-options="required:true,validType:['maxLength[25]']" value="${username!}" disabled="disabled" style="background-color: #f0f0f0"/></td>
+					<td class="label">存档编号</td>
+					<td ><input name="dabh" class="easyui-textbox" data-options="required:true,validType:['maxLength[25]']" style="background-color: #f0f0f0"/></td>
+				</tr>
+				<!--  
+				<tr>
+					<td class="label">页数</td>
+					<td><input name="ys" class="easyui-numberbox" data-options="required:false,validType:['maxLength[25]']"/></td>
+				
+				</tr>
+				-->
+				<tr>
+					<td class="label">备注</td>
+					<td colspan="3">
+						<input name="bz" class="easyui-textbox" data-options="multiline:true,validType:['maxLength[250]'],required:false,width:500,height:70"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="OABG_GWGL_DAGL_GDDJ" name="gddj_save"/>
+	</div>
+</div>

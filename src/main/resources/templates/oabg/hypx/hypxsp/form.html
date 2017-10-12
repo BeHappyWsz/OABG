@@ -1,0 +1,82 @@
+<script src="${s.ctx}/apps/oabg/hypx/hypxsp/form.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false,collapsible:false" style="padding:3px" >
+		<form id="hypxsp_form" >
+			<fieldset style="padding: 3px;">
+				<legend>申请人信息</legend>
+				<input id="hypxsp_form_id" name="id" type="hidden" value="${hypxspInfo.id!}"/>
+				<table width="100%" class="formtable">
+					<tr>
+						<td class="label">申请人</td>
+						<td >${hypxspInfo.sqr!}</td>
+						<td class="label">申请日期</td>
+						<td>${hypxspInfo.sqrq!}</td>
+					</tr>
+				</table>
+			</fieldset>
+			<fieldset style="padding: 3px;">
+				<legend>基本信息</legend>
+				<table width="100%" class="formtable">
+					<tr>
+						<td class="label">会议（培训）名称</td>
+						<td>${hypxspInfo.mc!}</td>
+						<td class="label">会议（培训）天数</td>
+						<td>${hypxspInfo.hyts!}</td>
+					</tr>
+					<tr>
+						<td class="label">地点</td>
+						<td colspan="3">${hypxspInfo.hydd!}</td>
+					</tr>
+					<tr>
+						<td class="label">计划情况</td>
+						<td colspan="3">${hypxspInfo.jhqkName!}</td>
+					</tr>
+					<tr>
+						<td class="label">会场人数</td>
+						<td>${hypxspInfo.hcrs!}</td>
+						<td class="label">金额</td>
+						<td>${hypxspInfo.hcje!}</td>
+					</tr>
+					<tr>
+						<td class="label">就餐人数</td>
+						<td>${hypxspInfo.jcrs!}</td>
+						<td class="label">就餐金额</td>
+						<td>${hypxspInfo.jcje!}</td>
+					</tr>
+					<tr>
+						<td class="label">就餐标准</td>
+						<td colspan="3">${hypxspInfo.jcbz!}</td>
+					</tr>
+					<tr>
+						<td class="label">住宿人数</td>
+						<td>${hypxspInfo.zsrs!}</td>
+						<td class="label">住宿金额</td>
+						<td>${hypxspInfo.zsje!}</td>
+					</tr>
+					<tr>
+						<td class="label">住宿标准</td>
+						<td colspan="3">${hypxspInfo.zsbz!}</td>
+					</tr>
+					<tr>
+						<td class="label">预算大写</td>
+						<td>${hypxspInfo.ysdx!}</td>
+						<td class="label">预算小写</td>
+						<td>${hypxspInfo.ysxx!}</td>
+					</tr>
+					<tr>
+						<td class="label">其他费用</td>
+						<td colspan="3">${hypxspInfo.qtfy!}</td>
+					</tr>
+					<tr style="height: 60px;">
+						<td class="label">备注</td>
+						<td colspan="3">${hypxspInfo.bz!}</td>
+					</tr>
+				</table>
+			</fieldset>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="OABG_HYPX_HYPXSP" name="HYPXSP_FORMSPBTN"/>
+	</div>
+</div>

@@ -1,0 +1,18 @@
+<script src="${s.ctx}/apps/oabg/swng/ffpyForm.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false,collapsible:false" style="padding:3px" >
+		<form id="swng_ffpyForm" >
+			<input id="swng_ffpyForm_ids" name="ids" type="hidden"/>
+			<table width="100%" class="formtable">
+				<tr>
+					<td class="label" id="swng_ffpyForm_fglds">分管领导<@c.redstar/></td>
+					<td ><@c.combo id="swng_ffpyForm_fgld" code="getFgld" name="fglds" required="true" multiple="true" width=300/></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="OABG_GWGL_SWGL_SWNG" name="swng_doffpy"/>
+	</div>
+</div>

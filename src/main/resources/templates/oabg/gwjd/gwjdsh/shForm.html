@@ -1,0 +1,26 @@
+<script src="${s.ctx}/apps/oabg/gwjd/gwjdsh/shform.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false,collapsible:false" style="padding:3px" >
+		<form id="gwjdsh_shform" >
+			<input id="gwjdsh_shform_id" name="id" type="hidden"/>
+			<input id="gwjdsh_shform_stype" name="stype" type="hidden"/>
+			<table width="100%" class="formtable">
+				<tr>
+					<td class="label">是否通过<@c.redstar/></td>
+					<td ><@c.combo id="gwjdsh_shform_sftg" code="SF" name="sftg" required="true"/></td>
+				</tr>
+				<tr>
+					<td class="label" id="gwjdsh_shform_shyjtr">审核意见</td>
+					<td><input id="gwjdsh_shform_shyj" name="suggestion" class="easyui-textbox" data-options="multiline:true,validType:['maxLength[250]']" style="width: 295px;height: 60px;"/></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+	<#if gwjdshformshowczbtn>
+		<@command menu="OABG_GWJD_GWJDSH" name="GWJDSH_CZDOSHBTN"/>
+	</#if>
+		<@command menu="OABG_GWJD_GWJDSH" name="GWJDSH_BGSDOSHBTN,GWJDSH_CWDOSHBTN"/>
+	</div>
+</div>

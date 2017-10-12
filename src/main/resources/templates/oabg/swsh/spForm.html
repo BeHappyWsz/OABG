@@ -1,0 +1,23 @@
+<script src="${s.ctx}/apps/oabg/swsh/spform.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false,collapsible:false" style="padding:3px" >
+		<form id="swsh_spform" >
+			<input id="swsh_spform_index" name="index" type="hidden"/>
+			<input id="swsh_spform_ids" name="ids" type="hidden"/>
+			<table width="100%" class="formtable">
+				<tr>
+					<td class="label">审批意见<@c.redstar/></td>
+					<td><@c.combo id="swsh_spform_spyj" name="spyj" code="SPYJ" required="true"/></td>
+				</tr>
+				<tr>
+					<td class="label" id="swsh_spform_spyjtr"></td>
+					<td><input id="swsh_spform_suggestion" name="suggestion" class="easyui-textbox" data-options="required:false,multiline:true,validType:['maxLength[250]']" style="width: 295px;height: 60px;"/></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="OABG_GWGL_SWGL_SWSH" name="swsh_doNb,swsh_doPy"/>
+	</div>
+</div>

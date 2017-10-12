@@ -1,0 +1,29 @@
+<script src="${s.ctx}/apps/oabg/xxbsly/index.js" type="text/javascript"></script>
+<@s.loading/> 
+ <div class="easyui-layout" data-options="fit:true,border:false" >
+	<div data-options="region:'north'" title="查询条件" style="height:<@c.commonRowHeight row=1/>" >
+			<form id="xxbsly_qf">
+				<table class="querytable">
+					<tr>
+						<td class="label">报送部门：</td>
+						<td><input name = "bmdw" class="easyui-textbox"/></td>
+						<td class="label">报送时间(起)：</td>
+						<td><input class="easyui-datebox" name="bssjstart" data-options="editable:false" /></td>
+						<td class="label">报送时间(止)：</td>
+						<td><input class="easyui-datebox" name="bssjend"  data-options="editable:false"/></td>
+						<td><a id="xxbsly_query" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">查询</a></td>
+						<td><a id="xxbsly_clear" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-cross'">重置</a></td>
+					</tr>
+				</table> 
+			</form>
+	</div>
+	<div data-options="region:'center',border:false" title="数据列表【双击查看详情】">
+		<table id="xxbsly_grid" toolbar="#xxbsly_gridbar"></table>
+	</div>
+	<div id="xxbsly_gridbar">
+			<div style="padding: 2px">
+				<@command menu="XXBSSP" name="XXBSSP_SPBTN,XXBSSP_DAFEN"/>
+			</div>
+	</div>
+	
+</div>

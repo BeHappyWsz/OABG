@@ -1,0 +1,19 @@
+<@s.loading/> 
+<table class="formtable" style="width: 100%;">
+	<tr>
+		<td class="label" style="text-align:center;width: 16%;">出入库</td>
+		<td class="label" style="text-align:center;width: 16%;">数量</td>
+		<td class="label" style="text-align:center;width: 16%;">操作人</td>
+		<td class="label" style="text-align:center;width: 25%;">操作时间</td>
+	</tr>
+	<#if zcglRkjlList ??>
+	<#list zcglRkjlList as item>
+	<tr>
+		<td style="text-align:center;">${item.crkName!}</td>
+		<td style="text-align:right;">${item.sldw!}</td>
+		<td style="text-align:left;">${item.userName!}</td>
+		<td style="text-align:center;">${item.date!}</td>
+	</tr>
+	</#list>
+	</#if>
+</table> 

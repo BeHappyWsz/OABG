@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title>showMapWin.html</title>
+    </head>
+ 	<body>
+ 		<div id="iCenter" style="width:685px;"></div>
+ 		<script type="text/javascript">
+			var areaText = "${area!}";//地区
+			var jdx = "${jd!}";
+			var wdy = "${wd!}";
+		</script>
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=7f108d186c92e9ac10101c86c039d58c"></script> 
+		<script src="${s.ctx}/apps/mapView/showMap.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		//开始加载地图
+		setTimeout(function(){
+			mapInit();
+		},1000);
+		</script>
+	</body>
+</html>

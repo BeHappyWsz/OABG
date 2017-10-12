@@ -1,0 +1,44 @@
+<script src="${s.ctx}/apps/oabg/hytz/fkWin.js" type="text/javascript"></script>
+<@s.loading/> 
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false,collapsible:false" style="padding:3px" >
+		<form id="fk_form" >
+		<input type="hidden" name="hyid" value="${hyid}" id="hyid"/>
+		<input type="hidden" value="${roleCode}" id="roleCode"/>
+		<input type="hidden" value="${bmcode}" id="bmcode"/>
+			<table width="100%" class="formtable">
+				<tr>
+				   	<td class="label">会议时间：</td>
+					<td> ${h.huiyitime!}<!-- <input class="easyui-textbox" name="huiyitime" id="huiyitime1" style="width: 75%"/> -->  </td>
+				</tr>
+				<tr>
+					<td class="label">会议地点：</td>
+					<td >${h.huiyiaddress!}<!-- <input name="huiyiaddress"  class="easyui-textbox" id="hytz_address1" style="width: 75%"/> --></td>
+				</tr>
+				<tr>
+				   	<td class="label">会议标题：</td>
+					<td >${h.titles!}<!-- <input name="titles" class="easyui-textbox" id="titles1" style="width: 75%" > --></td>
+				</tr>	
+				<tr>
+					<td class="label">附件：</td>
+					<td >
+					<#list urlList! as url>
+						<div><a class="a" href="${s.ctx}${url.url}">${url.fileName}</a></div><br>
+					</#list> 
+            		</td>
+				</tr>
+				<tr>
+					<td class="label">是否参加：<@c.redstar/></td>
+					<td ><@c.combo name="sfcj" code="SF" id="sfcj" required = "true"/></td>
+				</tr>
+				<tr id ="hide" class="hide">
+					<td colspan="2"><input name="chjtry" id="fa_chrname" class="easyui-textbox" data-options="editable:false" style="width: 340px;"/>
+					<a id="fk_chry" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">选择参会人员</a></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="OABG_HuiYTZ" name="hytz-fk"/>
+	</div>
+</div>

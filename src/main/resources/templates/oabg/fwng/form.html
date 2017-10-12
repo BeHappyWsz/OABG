@@ -1,0 +1,106 @@
+<script src="${s.ctx}/apps/oabg/fwng/form.js" type="text/javascript"></script>
+<script src="${s.ctx}/apps/oabg/fwng/txl.js" type="text/javascript"></script>
+<script src="${s.ctx}/apps/oabg/fwng/bm.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false" id="oabg_fwng_form">
+	<div data-options="region:'center',border:false" style="padding:3px" >
+		<form id="fwng_form">
+			<input id="fwng_form_id" name="id" type="hidden"/>
+			<!-- 当前用户id+username -->
+			<input id="fwng_uid" name="uid" value="${uid!}" type="hidden"/>
+			<input id="fwng_form_uname" name="uname" value="${uname!}" type="hidden"/>
+			<input id="fwng_sjr" name="zsdws" type="hidden"/>
+			<input id="fwng_csdw" name="csdws" type="hidden"/>
+			<table width="100%" class="formtable">
+				<tr>
+					<td class="label">标题<@c.redstar/></td>
+					<td colspan="3"><input name="bt" class="easyui-textbox" data-options="required:true,validType:['maxLength[50]']" style="width:550px"/></td>
+				</tr>
+				<!-- 调用通讯录 -->
+				<tr>
+					<td class="label">主送单位<@c.redstar/></td>
+					<td colspan="2"><input name="zs" id="fwng_username" class="easyui-textbox" data-options="required:true,editable:true" style="width: 100%"/></td>
+					<td colspan="1">
+						<a id="fwng_sjrBtn" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">选择局领导</a>
+						<a id="fwng_bmBtn" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">选择部门</a>
+					</td>
+				</tr>
+				<tr style="height:50px">
+					<td class="label">快捷标签</td>
+					<td colspan="3">
+						<a id="fwng_jcsBtn"  class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">局处室</a>
+						<a id="fwng_zsdwBtn" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">直属单位</a>
+				    	<a id="fwng_xsqjBtn" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">辖市区局</a>
+				    </td>
+				</tr>
+				<!-- 调用结束 -->
+				<!-- 调用通讯录-->
+				<tr>
+					<td class="label">抄送单位</td>
+					<td colspan="2"><input name="cs" id="fwng_cs" class="easyui-textbox" data-options="required:false,editable:true" style="width: 100%"/></td>
+					<td colspan="1">
+						<a id="fwng_csdwBtn" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">选择局领导</a>
+						<a id="fwng_csBtn" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">选择部门</a>
+					</td>
+				</tr>
+				<!-- 调用结束 -->
+				<tr>
+					<td class="label">可否公开</td>
+					<td><@c.combo name="sfgk" code="SF" required="false" id="fwng_sfgk"/></td>
+					<td class="label">密级</td>
+					<td><input class="easyui-combobox" name="mj"   
+							data-options="valueField:'code',
+							textField:'name',
+							data:[{'code':'一般','name':'一般'},
+							{'code':'机密','name':'机密'},
+							{'code':'秘密','name':'秘密'}],
+							editable:true,
+							panelHeight:80,
+							icons:[{
+								iconCls:'icon-combo-clear',
+								handler : function(e) { $(e.data.target).combobox('clear'); }
+							   }]" id="fwsh_mj"/></td>
+				</tr>
+				<tr>
+					<td class="label">拟稿人</td>
+					<td><input name="ngrName" class="easyui-textbox" data-options="required:true,validType:['maxLength[25]']" value="${uName!}" disabled="disabled" style="background-color: #f0f0f0"/>
+						<input name="ngr" type="hidden" value="${uname!}"/>
+					</td>
+					<td class="label">拟稿时间</td>
+					<td><input name="ngrq" class="easyui-datetimebox" data-options="required:true,validType:['maxLength[25]'],showSeconds: false" id="fwng_ngrq" style="background-color: #f0f0f0"/></td>
+				</tr>	
+
+				<tr>
+					<td class="label">份数<@c.redstar/></td>
+					<td style="border-right:0px"><input name="fs" class="easyui-numberbox" data-options="required:true,validType:['maxLength[25]']"/></td>
+					<td class="label" style="border-left: 0px;border-right: 0px;background-color: white"></td>
+					<td style="border-left: 0px"></td>
+				</tr>
+				<tr>
+					<td class="label">正文<@c.redstar/></td>
+					<td style="border-right: 0px"></td>
+					<td class="label" style="border-left: 0px;border-right: 0px;background-color: white"></td>
+					<td style="border-left: 0px"></td>
+				</tr>
+				<tr>
+					<td colspan="4"><textarea id="oabg_fwng_zw" name="zws" class="easyui-kindeditorbox" style="width:690px;height:300px" required="required"></textarea></td>
+				</tr>
+				<tr>
+					<td class="label">附件</td>
+					<td colspan="3">
+						 <div id="fwng_fj" class="easyui-mutiuploadbox" style="width:550px;height:100px;" name="fjs" border="true" boxBorder="false" boxHeight="30" isPreview="false"></div>
+					</td>
+				</tr>
+				<tr>
+					<td class="label">备注</td>
+					<td colspan="3">
+						<input name="bz" class="easyui-textbox" data-options="multiline:true,validType:['maxLength[250]'],required:false,width:550,height:70"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD">
+		<@command menu="OABG_GWGL_FWGL_FWNG" name="fwng_save"/>
+	</div>
+</div>

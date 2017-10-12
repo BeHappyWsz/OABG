@@ -1,0 +1,25 @@
+<script src="${s.ctx}/apps/oabg/fwsh/fwjdform.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false,collapsible:false" style="padding:3px" >
+		<form id="fwsh_fwjdform">
+			<input id="fwsh_fwjdform_id" name="id" type="hidden"/>
+			<input id="fwsh_fwjdform_fwzt" name="fwzt" type="hidden"/>
+			<table width="100%" class="formtable">
+				<tr>
+					<td class="label">确认无误<@c.redstar/></td>
+					<td ><@c.combo name="tgzt" code="TGZT" required="true" id="fwjd_form_qrww"/></td>
+				</tr>
+				<tr>
+					<td class="label">修改点</td>
+					<td ><input name="suggestion" class="easyui-textbox" data-options="required:false,validType:['maxLength[100]']" style="width:310px" id="fwjd_form_xgd"/></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="OABG_GWGL_FWGL_FWSH" name="fwsh_fwjd_save"/>
+	</div>
+</div>
+
+

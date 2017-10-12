@@ -1,0 +1,23 @@
+<script src="${s.ctx}/apps/oabg/zcgl/zcsp/spForm.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false,collapsible:false" style="padding:3px" >
+		<form id="zcsp_sp_form" >
+			<input name="id" type="hidden" value="${id!}"/>
+			<input name="zcglsplc" type="hidden"/>
+			<table width="100%" class="formtable">
+				<tr>
+					<td class="label">通过与否<@c.redstar/></td>
+					<td><@c.combo id="zcsp_sp_form_tgzt" name="tgzt" required="true" code="TGZT"/></td>
+				</tr>
+				<tr>
+					<td class="label" id="zcsp_spform_spyjtr">审批意见</td>
+					<td><input  id="zcsp_spform_spyj" name="suggestion" class="easyui-textbox" data-options="multiline:true,validType:['maxLength[250]']" style="width: 250px;height: 60px;" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="OABG_HQGL_ZCGL_ZCSP" name="zcsp_save"/>
+	</div>
+</div>

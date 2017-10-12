@@ -1,0 +1,54 @@
+<script src="${s.ctx}/apps/oabg/tssw/form.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false" style="padding:3px" >
+		<form id="tssw_lookForm">
+			<input id="tssw_lookForm_swr" name="swr" value="${message.swr!}" type="hidden"/>
+			<input id="tssw_lookForm_id" name="id" value="${message.id!}" type="hidden"/>
+			<input id="tssw_lookForm_sjrid" name="sjrs" type="hidden"/>
+			<table width="100%" class="formtable">
+				<tr>
+					<td class="label">收文日期</td>
+					<td>${message.swrq!}</td>
+					<td class="label">收文类型</td>
+					<td>${message.tsswlxName!}</td>
+				</tr>
+				<tr>
+					<td class="label">标题</td>
+					<td colspan="3">${message.bt!}</td>
+				</tr>
+				<tr>
+					<td class="label">正文</td>
+					<td style="border-right: 0px"></td>
+					<td class="label" style="border-left: 0px;border-right: 0px;background-color: white"></td>
+					<td style="border-left: 0px"></td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<div style="width:670px;height:300px;overflow: auto">
+							${message.zw!}
+						</div>
+					</td>
+				</tr>
+				<tr style="min-height: 30px;">
+					<td class="label">附件</td>
+					<td colspan="3">
+						<#list fjList! as url>
+							<a href="${s.ctx}${url.url}">${url.fileName!}</a><br/>
+						</#list> 
+					</td>
+				</tr>
+				<tr>
+					<td class="label">收件人</td>
+					<td colspan="3">${message.sjrnames!}</td>
+				</tr>
+				<tr>
+					<td class="label">回复时间(起)</td>
+					<td>${message.hfrqs!}</td>
+					<td class="label">回复时间(止)</td>
+					<td>${message.hfrqe!}</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>

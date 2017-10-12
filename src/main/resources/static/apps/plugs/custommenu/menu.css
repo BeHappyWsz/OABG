@@ -1,0 +1,65 @@
+.custree-menu{
+	height: auto;
+	width: 100px;
+	position: absolute;
+	overflow: visible;
+	z-index: 999;
+	left: 5px;
+	top: 150px;
+}
+.custree-menu-main{
+	position: relative;
+	background-color: transparent;
+	z-index: auto;
+}
+
+.custree-menu-left-main{
+	position: absolute;
+	display: none;
+	background-color: #FEF5F6;
+	margin-left: 7px;
+}
+.custree-across{
+	height: 30px;
+	cursor: pointer;
+	line-height: 20px;
+	padding-top: 10px;
+	font-size: 16px;
+}
+.custree-across:hover{
+	background-color: pink;
+}
+.custree-kids{
+	width: 100%;
+	height: auto;
+	min-height: 25px;
+	line-height: 20px;
+	cursor: pointer;
+	padding-top: 6px;
+	font-size: 14px;
+	overflow: auto;
+}
+.custree-kids:hover{
+	background-color: pink;
+}
+.across-icon{
+	margin-left: 5px;
+	margin-right: 5px;
+	float: left;
+	width: 20px;
+	height: 20px;
+}
+.across-text{
+	float: left;
+}
+.kids-icon{
+	margin-left: 5px;
+	margin-right: 5px;
+	float: left;
+	width: 20px;
+	height: 20px;
+}
+.kids-text{
+	float: left;
+	width: auto;
+}

@@ -1,0 +1,61 @@
+<script src="${s.ctx}/apps/oabg/gdpsbl/gdps/form.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false" style="padding:3px" >
+		<form id="gdps_lookForm">
+			<table width="100%" class="formtable">
+				<tr>
+					<td class="label">派送时间</td>
+					<td>${message.pssj!}</td>
+					<td class="label">工单类型</td>
+					<td>${message.gdpslx!}</td>
+				</tr>
+				<tr>
+					<td class="label">标题</td>
+					<td colspan="3">${message.bt!}</td>
+				</tr>
+				<tr>
+					<td class="label">正文</td>
+					<td style="border-right: 0px"></td>
+					<td class="label" style="border-left: 0px;border-right: 0px;background-color: white"></td>
+					<td style="border-left: 0px"></td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<div style="width:729px;height:300px;overflow: auto">
+							${message.gdnr!}
+						</div>
+					</td>
+				</tr>
+				<tr style="min-height: 30px;">
+					<td class="label">附件</td>
+					<td colspan="3">
+						<div style="width:580px;height:60px;overflow: auto">
+							<#list fjList! as url>
+								<a href="${s.ctx}${url.url}">${url.fileName!}</a><br/>
+							</#list> 
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="label">受理单位</td>
+					<td colspan="3">${message.blbmNames!}</td>
+				</tr>
+				<tr>
+					<td class="label">办理期限(起)</td>
+					<td>${message.blqxs!}</td>
+					<td class="label">办理期限(止)</td>
+					<td>${message.blqxe!}</td>
+				</tr>
+				<tr style="min-height: 30px;">
+					<td class="label">备注</td>
+					<td colspan="3">
+						<div style="width:580px;height:60px;overflow: auto">
+							${message.bz!}
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>

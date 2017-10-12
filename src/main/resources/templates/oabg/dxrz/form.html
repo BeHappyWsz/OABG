@@ -1,0 +1,33 @@
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false,collapsible:false" style="padding:3px" >
+		<form id="lwypdj_form" >
+			<input name="id" type="hidden"/>
+			<table width="100%" class="formtable">
+				<tr>
+					<td class="label">接收人</td>
+					<td>${dxrz_form_info.jsr!}</td>
+					<td class="label">手机号</td>
+					<td>${dxrz_form_info.tel!}</td>
+				</tr>
+				<tr>
+					<td class="label">发送时间</td>
+					<td>${dxrz_form_info.fssj!}</td>
+					<td class="label">发送状态</td>
+					<td>${dxrz_form_info.fsztName!}</td>
+				</tr>
+				<tr>
+					<td class="label">发送原因</td>
+					<td colspan="3">${dxrz_form_info.fsyy!}</td>
+				</tr>
+				<tr style="height: 60px;">
+					<td class="label">发送内容</td>
+					<td colspan="3">${dxrz_form_info.nr!}</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="OABG_HQGL_LWYPGL_LWYPDJ" name="LWYPDJ_SAVEBTN"/>
+	</div>
+</div>

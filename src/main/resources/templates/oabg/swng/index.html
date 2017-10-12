@@ -1,0 +1,30 @@
+<script src="${s.ctx}/apps/oabg/swng/index.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true">
+	<div data-options="region:'north',border:false" title="查询条件" style="height:<@c.commonRowHeight row=1/>">
+		<div style="width:970px">
+			<form id="swng_qf">
+				<table class="querytable">
+					<tr>
+						<td class="label">收文日期:</td>
+						<td><input name="times" class="easyui-datebox" data-options="editable:false,icons:[{iconCls:'icon-combo-clear',handler : function(e) { $(e.data.target).combo('clear');}}]">
+						<td class="label">至:</td>
+						<td><input name="timee" class="easyui-datebox" data-options="editable:false,icons:[{iconCls:'icon-combo-clear',handler : function(e) { $(e.data.target).combo('clear');}}]">
+						<td class="label">收文来源:</td>
+					    <td><@c.combo id="swng_wjly" name="wjly" code="wjly"/></td>
+					    <td><a id="swng_qf_query" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">查询</a></td>
+						<td><a id="swng_qf_clear" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-cross'">清空</a></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	<div data-options="region:'center',border:false" title="数据列表[双击查看详情]">
+		<table id="swng_grid" toolbar="#swng_gridbar"></table>
+		<div id="swng_gridbar">
+			<div style="padding: 2px">
+				<@command menu="OABG_GWGL_SWGL_SWNG" name="swng_add,swng_open,swng_ffpy,swng_swcl,swng_delete"/>
+			</div>
+		</div>
+	</div>
+</div>

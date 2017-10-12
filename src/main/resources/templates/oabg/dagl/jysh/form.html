@@ -1,0 +1,38 @@
+<script src="${s.ctx}/apps/oabg/dagl/jysh/form.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false,collapsible:false" style="padding:3px" >
+		<form id="jysh_form" >
+			<input name="id" type="hidden" id="jysh_form_id"/>
+			<table width="100%" class="formtable">
+				<tr>
+					<td class="label">申请人</td>
+					<td ><input name="sqr" class="easyui-textbox" data-options="editable:false,validType:['maxLength[25]']" /></td>
+					<td class="label">部门单位</td>
+					<td ><input name="sqbm" class="easyui-textbox" data-options="editable:false,validType:['maxLength[25]']" /></td>
+				</tr>
+				<tr>
+					<td class="label">申请日期</td>
+					<td colspan="3"><input name="sqrq" class="easyui-textbox" data-options="editable:false,validType:['maxLength[25]']" /></td>
+				</tr>
+				<tr>
+					<td class="label">借阅时间(起)</td>
+					<td ><input name="jysjs" class="easyui-datetimebox" data-options="required:true,editable:false" style="background-color: #f0f0f0"/></td>
+					<td class="label">借阅时间(止)</td>
+					<td ><input name="jysje" class="easyui-datetimebox" data-options="required:true,editable:false" style="background-color: #f0f0f0"/></td>
+				</tr>
+				<tr>
+					<td class="label">文档标题</td>
+					<td colspan="3"><input name="wdbt" class="easyui-textbox" data-options="editable:false,validType:['maxLength[50]']" style="width:495px" /></td>
+				</tr>
+				<tr>
+					<td class="label">借阅原因</td>
+					<td colspan="3"><input name="sqyy" class="easyui-textbox" data-options="required:true,multiline:true,validType:['maxLength[250]']" style="width: 495px;height: 60px;"/></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div id="jysh_south" data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="OABG_GWGL_DAGL_JYSH" name="jysh_shh"/>
+	</div>
+</div>

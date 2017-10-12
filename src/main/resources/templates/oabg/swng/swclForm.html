@@ -1,0 +1,41 @@
+<script src="${s.ctx}/apps/oabg/swng/swclForm.js" type="text/javascript"></script>
+<script src="${s.ctx}/apps/oabg/swng/txl.js" type="text/javascript"></script>
+<script src="${s.ctx}/apps/oabg/swng/bm.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false,collapsible:false" style="padding:3px" >
+		<form id="swng_swclForm" >
+			<input id="swng_swclForm_ids" name="ids" type="hidden"/>
+			<input id="swng_swclForm_index" name="index" type="hidden"/>
+			<!-- 收件人username -->
+			<input id="swng_swclForm_sjr" name="sjr" type="hidden"/>
+			<table width="100%" class="formtable">
+				<tr>
+					<td class="label">收文处理<@c.redstar/></td>
+					<td colspan="4"><@c.combo id="swng_swclForm_swcl" name="swcl" code="swcl" required="true"/></td>
+				</tr>
+				<!-- 调用通讯录 -->
+				<tr>
+					<td class="label" id="swng_swclForm_td">收件人<@c.redstar/></td>
+					<td colspan="2"><input id="swng_swclForm_username" name="name" class="easyui-textbox" data-options="required:true,editable:false" style="width: 100%"/></td>
+					<td colspan="2">
+						<a id="swng_swclForm_sjrBtn" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">选择局领导</a>
+						<a id="swng_swclForm_bmBtn" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">选择部门</a>
+					</td>
+				</tr>
+				<tr style="height:50px">
+					<td class="label">快捷标签</td>
+					<td colspan="4">
+						<a id="swng_swclForm_jcsBtn"  class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">局处室</a>
+						<a id="swng_swclForm_zsdwBtn" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">直属单位</a>
+				    	<a id="swng_swclForm_xsqjBtn" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">辖市区局</a>
+				    </td>
+				</tr>
+				<!-- 调用结束 -->
+			</table>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="OABG_GWGL_SWGL_SWNG" name="swng_doswcl"/>
+	</div>
+</div>

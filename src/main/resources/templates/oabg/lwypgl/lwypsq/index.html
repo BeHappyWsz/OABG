@@ -1,0 +1,38 @@
+<script src="${s.ctx}/apps/oabg/lwypgl/lwypsq/index.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true">
+	<div data-options="region:'north',border:false" title="查询条件" style="height: <@c.commonRowHeight row=2/>;">
+		<div style="width: 970px;">
+			<form id="lwypsq_qf">
+				<table class="querytable">
+					<tr>
+						<td class="label">物品名称：</td>
+						<td><input name="name" class="easyui-textbox" /></td>
+						<td class="label">申请日期(起)：</td>
+						<td><input type="text" name="sqrq_s" class="easyui-datebox" data-options="editable:false"></input></td>
+						<td class="label">申请日期(止)：</td>
+						<td><input type="text" name="sqrq_e" class="easyui-datebox" data-options="editable:false"></input></td>
+						<td>
+							<a id="lwypsq_query" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">查询</a>
+						</td>
+					</tr>
+					<tr>
+						<td class="label">申请人：</td>
+						<td><input name="sqr" class="easyui-textbox" /></td>
+						<td class="label">流程状态：</td>
+						<td colspan="3"><@c.combo code="TYLC" name="lczt"/> </td>
+						<td>
+							<a id="lwypsq_clear" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-cross'">清空</a>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	<div data-options="region:'center',border:false" title="数据列表[双击查看详情]">
+		<table id="lwypsq_grid" toolbar="#lwypsq_gridbar"></table>
+		<div id="lwypsq_gridbar">
+			<div style="padding: 2px"><@command menu="OABG_HQGL_LWYPGL_LWYPSQ" name="LWYPSQ_ADDBTN,LWYPSQ_UPDATEBTN,LWYPSQ_DELETEBTN"/></div>
+		</div>
+	</div>
+</div>

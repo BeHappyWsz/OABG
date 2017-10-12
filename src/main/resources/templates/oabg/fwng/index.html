@@ -1,0 +1,52 @@
+<script src="${s.ctx}/apps/oabg/fwng/index.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true">
+	<div data-options="region:'north',border:false" title="查询条件" style="height:<@c.commonRowHeight row=2/>">
+		<div style="width:970px">
+			<form id="fwng_qf">
+				<table class="querytable">
+					<tr>
+						<td class="label">发文状态</td>
+						<td><@c.combo name="zt" code="ZT"/></td>
+						<td class="label">发文时间:</td>
+						<td><input name="times" class="easyui-datebox" data-options="editable:false,icons:[{iconCls:'icon-combo-clear',handler : function(e) { $(e.data.target).combo('clear');}}]">
+						<td class="label">至:</td>
+						<td><input name="timee" class="easyui-datebox" data-options="editable:false,icons:[{iconCls:'icon-combo-clear',handler : function(e) { $(e.data.target).combo('clear');}}]">
+					    <td><a id="fwng_query" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">查询</a></td>
+					</tr>
+					<tr>
+						<td class="label">机密程度</td>
+						<td>
+							<input class="easyui-combobox" name="jmcd"   
+							data-options="valueField:'code',
+							textField:'name',
+							data:[{'code':'一般','name':'一般'},
+							{'code':'机密','name':'机密'},
+							{'code':'秘密','name':'秘密'}],
+							editable:false,
+							panelHeight:80,
+							icons:[{
+								iconCls:'icon-combo-clear',
+								handler : function(e) { $(e.data.target).combobox('clear');}
+							   }]
+							" id="fwsh_mj"/>
+						</td>
+						<td class="label"></td>
+						<td></td>
+						<td class="label"></td>
+						<td></td>
+						<td><a id="fwng_clear" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-cross'">清空</a></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	<div data-options="region:'center',border:false" title="数据列表[双击修改]">
+		<table id="fwng_grid" toolbar="#fwng_gridbar"></table>
+		<div id="fwng_gridbar">
+			<div style="padding: 2px">
+				<@command menu="OABG_GWGL_FWGL_FWNG" name="fwng_add"/>
+			</div>
+		</div>
+	</div>
+</div>

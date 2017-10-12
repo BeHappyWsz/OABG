@@ -1,0 +1,38 @@
+<script src="${s.ctx}/apps/oabg/swcy/index.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true">
+	<div data-options="region:'north',border:false" title="查询条件" style="height:<@c.commonRowHeight row=2/>">
+		<div style="width:970px">
+			<form id="swcy_qf">
+				<table class="querytable">
+					<tr>
+						<td class="label">收文日期</td>
+						<td><input name="times" class="easyui-datebox" data-options="editable:false,icons:[{iconCls:'icon-combo-clear',handler : function(e) { $(e.data.target).combo('clear');}}]">
+						<td class="label">至</td>
+						<td><input name="timee" class="easyui-datebox" data-options="editable:false,icons:[{iconCls:'icon-combo-clear',handler : function(e) { $(e.data.target).combo('clear');}}]">
+						<td class="label">收文来源</td>
+					    <td><@c.combo id="swcy_wjly" name="wjly" code="wjly"/></td>
+					    <td><a id="swcy_qf_query" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">查询</a></td>
+					</tr>
+					<tr>
+						<td class="label">原文号</td>
+						<td><input name="fwzh" class="easyui-textbox"/></td>
+						<td class="label">发文机关</td>
+						<td><input name="fwjg" class="easyui-textbox"/></td>
+						<td class="label">文件标题</td>
+						<td><input name="bt" class="easyui-textbox"/></td>
+						<td><a id="swcy_qf_clear" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-cross'">清空</a></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	<div data-options="region:'center',border:false" title="数据列表[双击查看详情]">
+		<table id="swcy_grid" toolbar="#swcy_gridbar"></table>
+		<div id="swcy_gridbar">
+			<div style="padding: 2px">
+				<@command menu="OABG_GWGL_SWGL_SWCY" name=""/>
+			</div>
+		</div>
+	</div>
+</div>

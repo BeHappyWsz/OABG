@@ -1,0 +1,25 @@
+<script src="${s.ctx}/apps/oabg/hytz/bm.js" type="text/javascript"></script> 
+<@s.loading/> 
+ <div class="easyui-layout" data-options="fit:true,border:false" >
+	<div data-options="region:'north'" title="查询条件" style="height:<@c.commonRowHeight row=1/>" >
+			<form id="bm_qf">
+			<input type = "hidden" id="bm_qf_id"/>
+				<table class="querytable">
+					<tr>
+						<td class="label">姓名：</td>
+						<td><input name="name" class="easyui-textbox"/></td>
+						<td class="label">工作部门：</td>
+						<td><input name="bmdwName" class="easyui-textbox"/></td>
+						<td><a id="bm_query" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">查询</a></td>
+						<td><a id="bm_clear" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-cross'">重置</a></td>
+					</tr>
+				</table> 
+			</form>
+	</div>
+	<div data-options="region:'center',border:false" title="数据列表">
+		<table id="bm_grid" ></table>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="OABG_HuiYTZ" name="hytz-okk"/>
+	</div>
+</div>

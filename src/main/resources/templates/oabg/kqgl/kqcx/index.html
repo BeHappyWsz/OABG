@@ -1,0 +1,25 @@
+<script src="${s.ctx}/apps/oabg/kqgl/kqcx/index.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true">
+	<div data-options="region:'north',border:false" title="查询条件" style="height:<@c.commonRowHeight row=1/>">
+		<div style="width:970px">
+			<form id="kqcx_qf">
+				<table class="querytable">
+					<tr>
+						<td class="label">部门名称：</td>
+						<td><input name ="bmdw" class="easyui-textbox"/></td>
+						<td class="label">请假类型：</td>
+						<td><@c.combo name="qjlx" code="QJLX" id="qjlx" /></td>
+						<td class="label">是否出差：</td>
+						<td><@c.combo name="sfcc" code="SF" id="sfcc" /></td>
+						<td><a id="kqcx_query" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">查询</a></td>
+						<td><a id="kqcx_clear" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-cross'">重置</a></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	<div data-options="region:'center',border:false" title="数据列表">
+		<table id="kqcx_grid" ></table>
+	</div>
+</div> 

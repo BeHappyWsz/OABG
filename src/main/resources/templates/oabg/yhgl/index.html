@@ -1,0 +1,39 @@
+<script src="${s.ctx}/apps/oabg/yhgl/index.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true">
+	<div data-options="region:'north',border:false" title="查询条件" style="height:<@c.commonRowHeight row=2/>">
+		<div style="width:970px">
+			<form id="yhgl_qf">
+				<table class="querytable">
+					<tr>
+						<td class="label">用户名:</td>
+						<td><input name="username" class="easyui-textbox"/></td>
+						<td class="label">真实姓名:</td>
+						<td><input name="realname" class="easyui-textbox"/></td>
+						<td class="label">性别:</td>
+						<td><@c.combo name="xb" code="XB"/></td>
+						<td><a id="yhgl_query" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">查询</a></td>
+					</tr>
+					<tr>
+						<td class="label">角色名称:</td>
+						<td><@c.combo name="rolecode" code="getRoles"/></td>
+						<td class="label">部门单位</td>
+						<td><input class="easyui-textbox" name="bmdwName"/></td>
+						<td class="label">工作职位</td>
+						<td><@c.combo name="gzzw" code="GZZW"/></td>
+						<td><a id="yhgl_clear" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-cross'">重置</a></td>
+					</tr>
+					
+				</table>
+			</form>
+		</div>
+	</div>
+	<div data-options="region:'center',border:false" title="数据列表">
+		<table id="yhgl_grid" toolbar="#yhgl_gridbar"></table>
+		<div id="yhgl_gridbar">
+			<div style="padding: 2px">
+				<@command menu="OABG_XTGL_YHGL" name="YHGL_ADD,YHGL_DELETE"/>
+			</div>
+		</div>
+	</div>
+</div>

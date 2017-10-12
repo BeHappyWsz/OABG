@@ -1,0 +1,54 @@
+ <@s.loading/>
+<table class="common_bb_bt" style="width: 90%;" id ="td">
+	<thead>
+		<tr>
+			<td colspan=4><span>信息报送统计表</span></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td width="20%"><span>制表单位：${table_xxbsbb.zbdw!}</span></td>
+			<td width="60%"></td>
+			<td width="20%" style="text-align: right;"><span>制表日期：${table_xxbsbb.zbsj!}</span></td>
+		</tr>
+	</tbody>
+</table>
+<table class="common_bb_" style="width: 90%;">
+	<thead style="height: 20px;">
+		<tr>
+			<td style="text-align:center;width:20%">部门</td>
+			<td style="text-align:center;width:20%">标题</td>
+			<td style="text-align:center;width:15%">报送时间</td>
+			<td style="text-align:center;width:15%">报送条数</td>
+			<td style="text-align:center;width:15%">本月得分</td>
+			<td style="text-align:center;width:15%">年度累计得分</td>
+		</tr>
+	</thead>
+	<tbody>
+	<#list table_xxbsbb.data as item>
+		<#list item.bss as item2 >
+			<#if item2_index == 0>
+			<tr>
+				<td style="text-align:left;" rowspan="${item.total!}">${item.bmdwname!}</td>
+				<td style="text-align:left;">${item2.bsbt!}</td>
+				<td style="text-align:center;">${item2.bssj!}</td>
+				<td style="text-align:center;" rowspan="${item.total!}">${item.total!}</td>
+				<td style="text-align:center;" rowspan="${item.total!}">${item.totalscore!}</td>
+				<td style="text-align:center;" rowspan="${item.total!}">${item.scorey!}</td>
+			</tr>
+			<#else>
+			<tr>
+				<td style="text-align:left;">${item2.bsbt!}</td>
+				<td style="text-align:center;">${item2.bssj!}</td>
+			</tr>
+			</#if>
+		</#list>
+	</#list>
+	</tbody>
+</table>
+<table class="common_bb_" style="width: 90%;margin-bottom: 50px;">
+		<tr>
+			<td width="50%" style="border: 0px;"><span>制表人：${table_xxbsbb.zbr!}</span></td>
+			<td width="50%" style="text-align: right;border: 0px;"><span>报送年度：${table_xxbsbb.bssj!}</span></td>
+		</tr>
+</table>

@@ -1,0 +1,28 @@
+<script src="${s.ctx}/apps/oabg/dagl/wdjy/wdForm.js" type="text/javascript"></script> 
+<@s.loading/> 
+ <div class="easyui-layout" data-options="fit:true,border:false" >
+	<div data-options="region:'north',collapsible:false" title="查询条件" style="height:<@c.commonRowHeight row=1/>" >
+		<div  style="width:900px;">
+			<form id="wdjy_wdform_qf">
+				<table class="querytable">
+					<tr>
+						<td class="label">标题:</td>
+						<td><input name="bt" class="easyui-textbox"/></td>
+					   	<td class="label">编号:</td>
+						<td><input name="dabh" class="easyui-textbox"/></td>
+						<td class="label">类型:</td>
+						<td><@c.combo name="gdlx" code="gdlx"/></td>
+						<td><a id="wdjy_wdform_query" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">查询</a></td>
+						<td><a id="wdjy_wdform_clear" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-cross'">清空</a></td>
+					</tr>
+				</table> 
+			</form>
+		</div>
+	</div>
+	<div data-options="region:'center',border:false" title="文档列表">
+		<table id="wdjy_wdform_grid" ></table>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="OABG_GWGL_DAGL_WDJY" name="wdjy_wdform_xz"/>
+	</div>
+</div>

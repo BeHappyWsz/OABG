@@ -1,0 +1,155 @@
+[#macro redstar]
+<span style="color:red">*</span>
+[/#macro]
+
+[#macro combo name code  required="false" panelHeight="'auto'" panelMaxHeight="200" value="" onChange="" disabled="false" readonly="false" id="" multiple="false" width=155]
+	<input class="easyui-combobox" name="${name}" id="${id}" 
+		data-options="
+			url:'ds/${code}',
+			editable:false,
+			required:${required},
+			panelHeight:${panelHeight},
+			panelMaxHeight:${panelMaxHeight},
+			multiple : ${multiple},
+			value : '${value}',
+			width : ${width},
+			readonly : ${readonly},
+			disabled : ${disabled},
+			onChange : function(newValue, oldValue){
+				${onChange};
+			},
+			icons:[{
+					iconCls:'icon-combo-clear',
+					handler : function(e) { $(e.data.target).combobox('clear'); }
+				   }]
+			"></input>
+[/#macro]
+
+[#macro webcombo name code required="false" panelHeight="'auto'" value="" id="" width=155 height="26" border="1px solid #cbcbcb"]
+	<script type="text/javascript">
+		var selectData = "";
+		$.ajax({
+			url:'${s.ctx}/html/website/ds/${code}',
+			async:false,
+			success:function(data){
+				selectData = data;
+			}
+		});
+		var select_id = '${id}';
+		if(select_id != ""){
+			jQuery("#${id} option").remove();
+			for(var i=0;i<selectData.length;i++){
+				//jQuery("#"+select_id).prepend("<option value='0'>请选择</option>");//为Select插入一个Option(第一个位置)
+				jQuery("#"+select_id).append("<option value='"+selectData[i].value+"'>"+selectData[i].text+"</option>");//为Select追加一个Option(下拉项)
+			}
+		}
+	</script>
+	<select id="${id}" style="width:${width}px;height:${height}px;border:${border};"></select>
+[/#macro]
+
+[#macro websiteTestSelect id name="" url="" defaulttext="请选择" optsFuc="" textalign="left" width="180px" addStr="" required="" requiredType="" clickType="1" maxheight="150px" autoplace="1" autoheight="80" bindType="1"]
+	<div id="${id}_out" class="simple_select ${required}" style="width: ${width};" data-alreadybind="0" data-bindtype="${bindType}" data-requiredtype = "${requiredType}">
+		<div class="simple_select_1">
+			<input type="hidden" id="${id}" name="${id}" class="simple_select_val_h" value="" data-url="${s.ctx}/html/website/ds/${url}" data-clicktype="${clickType}" data-autoplace="${autoplace}" data-autoheight="${autoheight}">
+	 		<div class="simple_select_1_content simple_select_choosed" style="text-align:${textalign};">
+	 			&nbsp;${addStr}<span class="simple_select_choosed_text" data-default="${defaulttext}">${defaulttext}</span>${addStr}
+	 		</div>
+	   		<div class="simple_select_1_choose simple_select_hide" style="max-height: ${maxheight};">
+	   		</div>
+	   		<img class="simple_select_1_img simple_select_choosed" alt="" src="${s.ctx}/apps/website/image/shzzfzzx/common/xljt.jpg">
+	 	</div>
+ 	</div>
+[/#macro]
+
+[#macro getOrgTree name code checkbox="true" multiple="false" onSelect="" onlyLeafCheck="" cascadeCheck="true" required="false" panelHeight="200" value="" readonly="false" id="" ]
+	<input class="easyui-combotree" name="${name}" id="${id}" 
+		data-options="
+			url:'ds/getOrgTree${code}',
+			editable:false,
+			required:${required},
+			panelHeight:${panelHeight},
+			value : '${value}',
+			readonly : ${readonly},
+			checkbox : ${checkbox},
+			multiple　:${multiple},
+			cascadeCheck:${cascadeCheck},
+			onSelect : function(node){
+				${onSelect};
+			},
+			onlyLeafCheck:${onlyLeafCheck},
+			icons:[{
+					iconCls:'icon-combo-clear',
+					handler : function(e) { $(e.data.target).combotree('clear'); }
+				   }]
+			"></input>
+[/#macro]
+
+[#macro getBmdwTree name code isLeafSelect="true" checkbox="true" multiple="false" onClick="" onselect="" onChange="" onBeforeCheck="" cascadeCheck="false" required="false" panelHeight="200" value="" readonly="false" id="" width=550]
+	<input class="easyui-combotree" name="${name}" id="${id}" 
+		data-options="
+			url:'ds/dsTree/${code}',
+			editable:false,
+			required:${required},
+			panelHeight:${panelHeight},
+			value : '${value}',
+			readonly : ${readonly},
+			checkbox : ${checkbox},
+			multiple　:${multiple},
+			cascadeCheck:${cascadeCheck},
+			onSelect:function(n){
+				${onselect};
+			},
+			onBeforeSelect : function(node){
+				if(${isLeafSelect}){
+					var isLeaf = $(this).tree('isLeaf',node.target);
+					if(!isLeaf){
+						//showMsg('选择错误');
+					}
+					return isLeaf;
+				}else{
+					return true;
+				}
+			},
+			onBeforeCheck : function(node,checked){
+				if(checked){
+					return ${onBeforeCheck};
+				}else{
+					return true;
+				}
+			},
+			onChange : function(newValue, oldValue){
+				${onChange};
+			},
+			onClick : function(node){
+				${onClick};
+			},
+			icons:[{
+					iconCls:'icon-combo-clear',
+					handler : function(e) { $(e.data.target).combotree('clear'); }
+				   }]
+			"></input>
+[/#macro]
+
+[#macro datebox id="" name="" editable="false" required="false" width=155]
+	<input id="${id}" name="${name}" class="easyui-datebox" 
+	data-options="
+			editable:${editable},
+			required:${required},
+			width:${width},
+			icons:[{
+					iconCls:'icon-combo-clear',
+					handler : function(e) { $(e.data.target).datebox('clear'); }
+				   }]" />
+[/#macro]
+
+[#macro commonRowHeight row=2]
+	[#if row=1]
+	60px
+	[#elseif row=2]
+	90px
+	[#elseif row=3]
+	120px
+	[#else]
+	90px
+	[/#if]
+[/#macro]

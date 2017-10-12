@@ -1,0 +1,72 @@
+<script src="${s.ctx}/apps/oabg/swng/form.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false" style="padding:3px" >
+		<form id="swng_form">
+			<input id="swng_form_id" name="id" type="hidden"/>
+			<table width="100%" class="formtable">
+				<tr>
+					<td class="label">收文日期<@c.redstar/></td>
+					<td><input id="swng_form_swrq" name="swrq" class="easyui-datebox" data-options="required:true,editable:false"/></td>
+					<td class="label">发文日期<@c.redstar/></td>
+					<td><input id="swng_form_fwrq" name="fwrq" name="fwrq" class="easyui-datebox" data-options="required:true,editable:false"/></td>
+				</tr>
+				<tr>
+					<td class="label">发文字号</td>
+					<td><input name="fwzh" class="easyui-textbox" data-options="validType:['maxLength[50]']"/></td>
+					<td class="label">责任部门</td>
+					<td ><@c.getBmdwTree id="swng_form_zrbms" name="zrbms" code="BMDWL" multiple="true"/></td>
+				</tr>
+				<tr>
+					<td class="label">标题<@c.redstar/></td>
+					<td colspan="3"><input name="bt" class="easyui-textbox" data-options="required:true,validType:['maxLength[50]']" style="width:500px"/></td>
+				</tr>
+				<tr>
+				    <td class="label">发文机关<@c.redstar/></td>
+					<td><input name="fwjg" class="easyui-textbox" required="required" data-options="validType:['maxLength[50]']"/></td>
+					<td class="label">文件来源<@c.redstar/></td>
+					<td><@c.combo id="swng_wjly" name="wjly" code="wjly" required="true" /></td>
+				</tr>
+				<tr>
+					<td class="label">密级</td>
+					<td><input class="easyui-combobox" name="mj"   
+							data-options="valueField:'code',
+							textField:'name',
+							data:[{'code':'一般','name':'一般'},
+							{'code':'机密','name':'机密'},
+							{'code':'秘密','name':'秘密'},
+							],
+							editable:true,
+							panelHeight:80,
+							icons:[{
+								iconCls:'icon-combo-clear',
+								handler : function(e) { $(e.data.target).combobox('clear'); }
+							   }]" id="fwsh_mj"/></td>
+					<td class="label">缓急</td>
+					<td><@c.combo name="hj" code="HJ" /></td>
+				</tr>
+				<tr>
+					<td class="label">份数</td>
+					<td><input name="fs" class="easyui-numberbox" data-options="required:false,min:0,max:10000000,"/></td>
+					<td class="label">页数</td>
+					<td><input name="ys" class="easyui-numberbox" data-options="required:false,min:0,max:10000000"/></td>
+				</tr>
+				<tr>
+					<td class="label">附件</td>
+					<td colspan="3">
+						 <div id="swng_fj" class="easyui-mutiuploadbox" style="width:720px;height:100px;" name="fjs" border="true" boxBorder="false" boxHeight="30" isPreview="false"></div>
+					</td>
+				</tr>
+				<tr>
+					<td class="label">备注</td>
+					<td colspan="3">
+						<input name="bz" class="easyui-textbox" data-options="multiline:true,validType:['maxLength[250]'],required:false,width:455,height:70"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="OABG_GWGL_SWGL_SWNG" name="swng_save,swng_ffpyform,swng_swclform"/>
+	</div>
+</div>

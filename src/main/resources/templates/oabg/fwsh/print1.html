@@ -1,0 +1,45 @@
+	<title>发文打印预览</title>
+	<script type="text/javascript" src="${s.ctx}/webjars/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="${s.ctx}/common/js/LodopFuncs.js"></script>
+	<script language="javascript" type="text/javascript"> 
+		var LODOP; //声明为全局变量
+		$(document).ready(function(){
+			LODOP=getLodop(document.getElementById('LODOP_OB'),document.getElementById('LODOP_EM'));
+			LODOP.SET_LICENSES("常州市新博科技有限公司","935ED9779D3B7FEEB934D2F896DA4914","","");
+			LODOP.PRINT_INIT("发文打印预览");
+			LODOP.ADD_PRINT_HTML(0,0,"100%","100%",$("#div1").html());//intTop,intLeft,intWidth,intHeight,strHtml
+			LODOP.SET_SHOW_MODE("PREVIEW_IN_BROWSE",1);
+			LODOP.SET_SHOW_MODE("HIDE_PAPER_BOARD",1);
+			LODOP.SET_SHOW_MODE("SET_SHOW_MODE",1);
+			//LODOP.SET_PRINT_PAGESIZE(1,"297mm","210mm","A4");
+			LODOP.PREVIEW(); 	
+		});
+	</script>
+
+	<object id="LODOP_OB" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width="100%" height="100%"> 
+		<embed id="LODOP_EM" type="application/x-print-lodop" width="100%" height="100%"></embed>
+		<param name="Border" value="1">
+		<param name="Color" value="#ffffff">
+	</object> 
+	<div style="display:none;margin:0 auto;width:100%;"  id="div1">
+    <div style="width:90%;margin:100px,0px,0px,80px;">
+		<div style="width:100%;font-size:20px;">
+			<div style="margin-top:30px;text-align: center" >${fwng.djbh!}</div>
+			<div style="margin-top:30px;text-align: center">${fwng.bt!}</div>
+			<div style="margin-top:30px">
+				<div style="height:500px;border:0px solid green;width:100%;padding:20px;">${fwng.zw!}</div>
+			</div>
+			<div style="margin-top:30px">
+				<div>附件:</div>
+				<#list fjs as item>
+					<div>${item.fileName!}</div>
+				</#list>
+			</div>
+			<div style="float: right">
+				<#list dzqz as qz>
+					<div><img src="${s.ctx}${qz.url!}" width="150" height="150"/></div>
+				</#list>
+			</div>
+		</div>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+/*
+	通用报表css
+	作者：叶飞
+	日期：2016-07-22
+*/
+/**通用报表表头**/
+.common_bb_bt {
+	height: 70px;
+}
+
+.common_bb_bt thead tr td {
+	height: 35px;
+	text-align: center;
+}
+
+.common_bb_bt thead tr td span {
+	font-size: 21px;
+	font-weight: bold;
+	font-family:SimSun;
+}
+
+/**通用报表**/
+.common_bb_bt{
+	margin-top: 20px;
+	margin-left:auto;
+	margin-right:auto;
+	width: 90%;
+	border-collapse: collapse;
+}
+
+.common_bb{
+	margin: 0 auto;
+	width: 70%;
+	border-collapse: collapse;
+}
+
+.common_bb {
+	margin-bottom: 50px;
+}
+
+.common_bb_ {
+	margin: 0 auto;
+	width: 90%;
+	border-collapse: collapse;
+}
+
+.common_bb thead tr td {
+	text-align: center;
+	border: 1px solid #CBCBCB;
+	height: 40px;
+	background-color: #E3EEFF;
+	font-weight: 700;
+}
+
+.common_bb tbody tr td {
+	padding: 3px;
+	border: 1px solid #CBCBCB;
+	height: 30px;
+}
+
+.common_bb_ {
+	margin-bottom: 10px;
+}
+
+.common_bb_ thead tr td{
+	text-align: center;
+	border: 1px solid #CBCBCB;
+	height: 20px;
+	background-color: #E3EEFF;
+	font-size: 12px;
+	font-weight: 700;
+	font-family:SimSun;
+}
+
+.common_bb_ tbody tr td {
+	padding: 3px;
+	border: 1px solid #CBCBCB;
+	height: 16px;
+	font-size: 12px;
+	font-weight: 100;
+	font-family:SimSun;
+}
+/**合计**/
+.common_bb_outstanding{
+	font-weight: 700;
+	background-color: #E3EEFF;
+}
+

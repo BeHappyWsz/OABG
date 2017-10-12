@@ -1,0 +1,18 @@
+<script src="${s.ctx}/apps/oabg/gdpsbl/gdbl/blForm.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false,collapsible:false" style="padding:3px" >
+		<form id="gdbl_blForm" >
+			<input id="gdbl_blForm_id" name="id" type="hidden"/>
+			<table width="100%" class="formtable">
+				<tr>
+					<td class="label">办理情况<@c.redstar/></td>
+					<td><input id="gdbl_blForm_blyj" name="suggestion" class="easyui-textbox" data-options="required:true,multiline:true,validType:['maxLength[250]']" style="width: 295px;height: 60px;"/></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="OABG_GDPSBL_GDBL" name="gdbl_dobl"/>
+	</div>
+</div>

@@ -1,0 +1,25 @@
+<script src="${s.ctx}/apps/oabg/fwsh/yyffform.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false,collapsible:false" style="padding:3px" >
+		<form id="fwsh_yyffform">
+			<input id="fwsh_yyffform_id" name="id" type="hidden"/>
+			<input id="fwsh_yyffform_fwzt" name="fwzt" type="hidden"/>
+			<table width="100%" class="formtable">
+				<tr>
+					<td class="label">是否需要电子签章<@c.redstar/></td>
+					<td ><@c.combo name="dzqz" code="SF" required="true" id="yyff_dzqz"/></td>
+				</tr>
+				<tr id="yyff_form_dzqz">
+					<td class="label">电子签章</td>
+					<td >
+						 <div id="fwsh_dzqz" class="easyui-mutiuploadbox" style="width:310px;height:120px;" name="dzqzs" allowFileUpload="true" border="true" boxBorder="false" boxHeight="120" isPreview="true" allowedSuffixs="gif,jpg,jpeg,png,bmp"></div>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="OABG_GWGL_FWGL_FWSH" name="fwsh_fhyz,fwsh_yyff_ff"/>
+	</div>
+</div>

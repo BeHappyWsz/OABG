@@ -1,0 +1,40 @@
+<script src="${s.ctx}/apps/oabg/sbwx/sbwxsq/form.js" type="text/javascript"></script>
+<@s.loading/> 
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false,collapsible:false" style="padding:2px" >
+		<form id="sbwxsq_form" >
+			<input type="hidden" name="id" id = "sbwxsq_form_id"/>
+			<table  class="formtable">
+				<tr>
+					<td class="label">报修日期<@c.redstar/></td>
+					<td><input id="sbwxsq_form_bxrq" name="bxrq" class="easyui-datebox" data-options="required:true,editable:false,width:155,disabled:true" style="background-color: #f0f0f0"/></td>
+					<td class="label">报修部门<@c.redstar/></td>
+					<td ><@c.getBmdwTree id="sbwxsq_bxbm" name="bxbm" value="${bxbm!}" code="BMDWL" required="true"/></td>
+				</tr>
+				<tr>
+					<td class="label">经手人<@c.redstar/></td>
+					<td ><input name="jsr" value="${jsr!}" class="easyui-textbox" data-options="validType:'maxLength[20]',required:true,disabled:true" /></td>
+					<td class="label">部门负责人<@c.redstar/></td>
+					<td><input name="bmfzr" value="${bmfzr!}" class="easyui-textbox" data-options="validType:'maxLength[20]',required:true,disabled:true" /></td>
+				</tr>
+				<tr>
+					<td class="label">故障原因<@c.redstar/></td>
+					<td style="height:50px" colspan='3'>
+							<input name="gzyy" class="easyui-textbox" data-options="multiline:true,validType:['maxLength[250]'],width:455,height:70,required:true"/>
+						</td>
+		    	</tr>
+		    	<!--  
+				<tr>
+				   	<td class="label">维修情况</td>
+					<td style="height:50px" colspan='3'>
+						<input id="bz" name="bz" class="easyui-textbox" data-options="multiline:true,validType:['maxLength[250]'],width:455,height:70"/>
+					</td>
+				</tr>	
+				-->
+			</table>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:32px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:2px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="OABG_SBWX_SBWXSQ" name="SBWXSQ_SAVEBTN"/>
+	</div>
+</div>

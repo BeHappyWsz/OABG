@@ -1,0 +1,28 @@
+<script src="${s.ctx}/apps/oabg/gzgl/gzsq/index.js" type="text/javascript"></script>
+<@s.loading/> 
+ <div class="easyui-layout" data-options="fit:true,border:false" >
+	<div data-options="region:'north'" title="查询条件" style="height:<@c.commonRowHeight row=1/>" >
+			<input type="hidden" id="name" value="${name}"/>
+			<form id="gzsq_qf">
+				<table class="querytable">
+					<tr>
+						<td class="label">盖章时间：</td>
+						<td><input name="gztimeStr" class="easyui-datebox"/> - 
+							<input name="gztimeEnd" class="easyui-datebox"/>
+						</td>
+						<td><a id="gzsq_query" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">查询</a></td>
+						<td><a id="gzsq_clear" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-cross'">重置</a></td>
+					</tr>
+				</table> 
+			</form>
+	</div>
+	<div data-options="region:'center',border:false" title="数据列表">
+		<table id="gzsq_grid" toolbar="#gzsq_gridbar"></table>
+	</div>
+	<div id="gzsq_gridbar">
+			<div style="padding: 2px">
+				<@command menu="OABG_GZGL_GZSQ" name="gzsq-add,gzsq-update,gzsq-delete"/>
+			</div>
+	</div>
+	
+</div>

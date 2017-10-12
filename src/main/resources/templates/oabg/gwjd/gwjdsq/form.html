@@ -1,0 +1,112 @@
+<script src="${s.ctx}/apps/oabg/gwjd/gwjdsq/form.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false,collapsible:false" style="padding:3px" >
+		<form id="gwjdsq_form" >
+			<fieldset style="padding: 3px;">
+				<legend>申请人信息</legend>
+				<input name="id" type="hidden"/>
+				<table width="100%" class="formtable">
+					<tr>
+						<td class="label">申请人<@c.redstar/></td>
+						<td ><input name="sqr" class="easyui-textbox" data-options="required:true,disabled:true,validType:['maxLength[25]']" /></td>
+						<td class="label">申请日期<@c.redstar/></td>
+						<td><input name="sqrq" class="easyui-datebox" data-options="required:true,editable:false,disabled:true" /></td>
+					</tr>
+				</table>
+			</fieldset>
+			<fieldset style="padding: 3px;">
+				<legend>接待信息</legend>
+				<table width="100%" class="formtable">
+					<tr>
+						<td class="label">接待对象<@c.redstar/></td>
+						<td><input name="jddx" class="easyui-textbox" data-options="required:true,validType:['maxLength[100]']"/></td>
+						<td class="label">接待时间<@c.redstar/></td>
+						<td><input name="jdsj" class="easyui-datetimebox" data-options="required:true,showSeconds:false,editable:false"style="width:155px"/></td>
+					</tr>
+					<tr>
+						<td class="label">接待人数<@c.redstar/></td>
+						<td><input name="jdrs" class="easyui-numberbox" data-options="required:true,min:1,max:10000000" /></td>
+						<td class="label">陪客人数<@c.redstar/></td>
+						<td><input name="pkrs" class="easyui-numberbox" data-options="required:true,min:0,max:10000000" /></td>
+					</tr>
+					<tr>
+						<td class="label">接待级别<@c.redstar/></td>
+						<td colspan="3"><input name="jdjb" class="easyui-textbox" data-options="required:true,validType:['maxLength[100]']" style="width: 485px;"/></td>
+					</tr>
+					<tr>
+						<td class="label">接待事由<@c.redstar/></td>
+						<td colspan="3"><input name="jdsy" class="easyui-textbox" data-options="required:true,validType:['maxLength[100]']" style="width: 485px;"/></td>
+					</tr>
+				</table>
+			</fieldset>
+			<fieldset style="padding: 3px;">
+				<legend>会场信息</legend>
+				<table width="100%" class="formtable">
+					<tr>
+						<td class="label">会场地点<@c.redstar/></td>
+						<td><input name="hcdd" class="easyui-textbox" data-options="required:true,validType:['maxLength[100]']"/></td>
+						<td class="label">标准<@c.redstar/></td>
+						<td><input name="hcbz" class="easyui-textbox" data-options="required:true,validType:['maxLength[100]']" /></td>
+					</tr>
+					<tr>
+						<td class="label">与会人数<@c.redstar/></td>
+						<td colspan="3"><input name="hcrs" class="easyui-numberbox" data-options="required:true,min:1,max:10000000" /></td>
+					</tr>
+				</table>
+			</fieldset>
+			<fieldset style="padding: 3px;">
+				<legend>住宿信息</legend>
+				<table width="100%" class="formtable">
+					<tr>
+						<td class="label">住宿地点<@c.redstar/></td>
+						<td><input name="zsdd" class="easyui-textbox" data-options="required:true,validType:['maxLength[100]']"/></td>
+						<td class="label">住宿标准<@c.redstar/></td>
+						<td><input name="zsbz" class="easyui-textbox" data-options="required:true,validType:['maxLength[100]']" /></td>
+					</tr>
+					<tr>
+						<td class="label">住宿人数<@c.redstar/></td>
+						<td colspan="3"><input name="zsrs" class="easyui-numberbox" data-options="required:true,min:1,max:10000000" /></td>
+					</tr>
+				</table>
+			</fieldset>
+			<fieldset style="padding: 3px;">
+				<legend>餐饮信息</legend>
+				<table width="100%" class="formtable">
+					<tr>
+						<td class="label">餐饮地点<@c.redstar/></td>
+						<td><input name="cydd" class="easyui-textbox" data-options="required:true,validType:['maxLength[100]']"/></td>
+						<td class="label">餐饮标准<@c.redstar/></td>
+						<td><input name="cybz" class="easyui-textbox" data-options="required:true,validType:['maxLength[100]']" /></td>
+					</tr>
+					<tr>
+						<td class="label">餐饮人数<@c.redstar/></td>
+						<td colspan="3"><input name="cyrs" class="easyui-numberbox" data-options="required:true,min:1,max:10000000" /></td>
+					</tr>
+				</table>
+			</fieldset>
+			<fieldset style="padding: 3px;">
+				<legend>其他信息</legend>
+				<table width="100%" class="formtable">
+					<tr>
+						<td class="label">预算大写<@c.redstar/></td>
+						<td><input name="ysdx" class="easyui-textbox" data-options="required:true,validType:['maxLength[100]']" /></td>
+						<td class="label">预算小写（元）<@c.redstar/></td>
+						<td><input name="ysxx" class="easyui-numberbox" data-options="required:true,min:0,max:10000000,precision:2" /></td>
+					</tr>
+					<tr>
+						<td class="label">其他金额（元）</td>
+						<td colspan="3"><input name="qtje" class="easyui-numberbox" data-options="min:0,max:10000000,precision:2"/></td>
+					</tr>
+					<tr>
+						<td class="label">备注</td>
+						<td colspan="3"><input name="bz" class="easyui-textbox" data-options="multiline:true,validType:['maxLength[250]']" style="width: 485px;height: 60px;"/></td>
+					</tr>
+				</table>
+			</fieldset>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="OABG_GWJD_GWJDSQ" name="GWJDSQ_SAVEBTN"/>
+	</div>
+</div>

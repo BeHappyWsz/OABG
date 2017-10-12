@@ -1,0 +1,35 @@
+ <script src="${s.ctx}/apps/oabg/kqgl/qjspOne/index.js" type="text/javascript"></script> 
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true">
+	<div data-options="region:'north',border:false" title="查询条件" style="height:<@c.commonRowHeight row=2/>">
+		<div style="width:970px">
+		<input type="hidden" value="${js}" id="qjsp"/>
+			<form id="qjsp_qf">
+				<table class="querytable">
+					<tr>
+					   <td class="label">姓名：</td>
+						<td><input name="qjname" class="easyui-textbox" ></td>
+						<td class="label">部门：</td>
+						<td><input name="bmdw" class="easyui-textbox" ></td>
+						<td><a id="qjsp_query" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">查询</a></td>
+					</tr>
+						<tr>
+						<td class="label">请假时间(起)：</td>
+						<td><input name="timeStr" class="easyui-datebox" data-options="editable:false,showSeconds: false"></td>
+						<td class="label">请假时间(止)：</td>
+						<td><input name="timeEnd" class="easyui-datebox" data-options="editable:false,showSeconds: false"></td>
+						<td><a id="qjsp_clear" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-cross'">重置</a></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	<div data-options="region:'center',border:false" title="数据列表【双击查看详情】">
+		<table id="qjsp_grid" toolbar="#qjsp_gridbar"></table>
+		<div id="qjsp_gridbar">
+			<div style="padding: 2px">
+				<@command menu="OABG_KQGL_QJSP" name="qjsp-czsp"/>
+			</div>
+		</div>
+	</div>
+</div> 

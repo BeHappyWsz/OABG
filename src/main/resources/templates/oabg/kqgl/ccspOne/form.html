@@ -1,0 +1,47 @@
+<script src="${s.ctx}/apps/oabg/kqgl/ccspOne/form.js" type="text/javascript"></script>
+<@s.loading/> 
+<div class="easyui-layout" data-options="fit:true,border:false">
+	<div data-options="region:'center',border:false,collapsible:false" style="padding:3px" >
+		<form id="ccsp_form" >
+			<input type="hidden" id="ccsp_id" value="${spFirstId}"/>
+			<input type="hidden" id="ccsp_js" value="${js}"/>
+			<table  class="formtable">
+				<tr>
+					<td class="label">姓名：</td>
+					<td width="200">${sp1.name!}</td>
+					<td class="label">部门：</td>
+					<td width="200">${sp1.bm!}</td>
+				</tr>
+				<tr >
+					<td class="label">联系方式：</td>
+					<td width="200">${sp1.lxfs!}</td>
+					<td class="label">出差地点：</td>
+					<td width="200">${sp1.ccaddress!}</td>
+				</tr>
+				<tr>
+				   	<td class="label">是否公务用车：</td>
+					<td colspan="3"> ${sp1.sfyc!}</td>
+				</tr>
+				<tr>
+				   	<td class="label">出差时间：</td>
+					<td colspan="3"> ${sp1.timeStr!}&emsp;至&emsp;${sp1.timeEnd!} </td>
+				</tr>
+				<tr>
+				   	<td class="label">一同出差人员：</td>
+					<td colspan="3"> ${sp1.ccrname!}</td>
+				</tr>
+				<tr>
+					<td class="label">出差事由：</td>
+					<td colspan="3">${sp1.sy!}</td>
+				</tr>
+				<tr>
+				   	<td class="label">备注：</td>
+					<td colspan="3">${sp1.bz!}</td>
+				</tr>	
+			</table>
+		</form>
+	</div>
+	<div data-options="region:'south',border:false" style="height:35px;text-align:center;background-color:#F4F4F4;border-style:solid; border-width:1px;padding-top:2px; border-color:white;border-top-color:#DDDDDD;">
+		<@command menu="OABG_KQGL_CCSP" name="ccsp-spp"/>
+	</div>
+</div>

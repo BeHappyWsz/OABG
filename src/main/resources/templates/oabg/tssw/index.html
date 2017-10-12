@@ -1,0 +1,30 @@
+<script src="${s.ctx}/apps/oabg/tssw/index.js" type="text/javascript"></script>
+<@s.loading/>
+<div class="easyui-layout" data-options="fit:true">
+	<div data-options="region:'north',border:false" title="查询条件" style="height:<@c.commonRowHeight row=1/>">
+		<div style="width:970px">
+			<form id="tssw_qf">
+				<table class="querytable">
+					<tr>
+						<td class="label">收文日期</td>
+						<td><input name="times" class="easyui-datebox" data-options="editable:false,icons:[{iconCls:'icon-combo-clear',handler : function(e) { $(e.data.target).combo('clear');}}]">
+						<td class="label">至</td>
+						<td><input name="timee" class="easyui-datebox" data-options="editable:false,icons:[{iconCls:'icon-combo-clear',handler : function(e) { $(e.data.target).combo('clear');}}]">
+						<td class="label">收文类型</td>
+						<td><@c.combo name="tsswlx" code="TSSWLX"/></td>
+					    <td><a id="tssw_qf_query" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-zoom'">查询</a></td>
+						<td><a id="tssw_qf_clear" class="easyui-linkbutton" data-options="plain:false,iconCls:'iconfont icon-standard-cross'">清空</a></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	<div data-options="region:'center',border:false" title="数据列表[双击查看详情]">
+		<table id="tssw_grid" toolbar="#tssw_gridbar"></table>
+		<div id="tssw_gridbar">
+			<div style="padding: 2px">
+				<@command menu="OABG_GWGL_SWGL_TSSW" name="tssw_add,tssw_open"/>
+			</div>
+		</div>
+	</div>
+</div>
